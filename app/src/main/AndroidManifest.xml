@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessApp">
-        <activity android:name=".layouts.StartUpActivity"></activity>
-        <activity android:name=".layouts.MainActivity">
+        <activity android:name=".layouts.MainActivity"></activity>
+        <activity android:name=".layouts.StartUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
