@@ -7,16 +7,13 @@
     tools:context=".layouts.StartUpActivity"
     android:background="@color/dark_grey">
 
-    <ImageView
-        android:id="@+id/bgImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:alpha="0.1"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/bg_img" />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/bgViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <ImageView
-        android:id="@+id/iconImageView"
+        android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_fitness_bot"
@@ -29,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/roboto_regular"
         android:text="Develop your confidence as you get stronger"
         android:textSize="18sp"
         android:textColor="@color/white"/>
@@ -48,7 +45,7 @@
         android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/registerButton"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/roboto_regular"
         android:text="Login"
         android:textAllCaps="false"
         android:textSize="20sp"
@@ -64,7 +61,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="25dp"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/roboto_regular"
         android:text="Register"
         android:textAllCaps="false"
         android:textSize="20sp"
