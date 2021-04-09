@@ -42,6 +42,15 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     public void onBindViewHolder(@NonNull ExerciseViewHolder holder, int position) {
         Exercise currentItem = mExerciseList.get(position);
         holder.mExerciseName.setText(currentItem.getName());
+
+        if (currentItem.getPrimaryMuscles().size() > 1) {
+            holder.mMuscleGroups.setText(currentItem.getPrimaryMuscles().get(0));
+            for (int i = 1; i < currentItem.getPrimaryMuscles().size(); i++) {
+                holder.mMuscleGroups.append(", " + currentItem.getPrimaryMuscles().get(i));
+            }
+        } else if (currentItem.getPrimaryMuscles().size() == 1) {
+            holder.mMuscleGroups.setText(currentItem.getPrimaryMuscles().get(0));
+        }
     }
 
     @Override
