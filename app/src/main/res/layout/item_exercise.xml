@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardElevation="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/grey">
+
+        <TextView
+            android:id="@+id/exerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BENCH PRESS"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_bold"/>
+
+        <TextView
+            android:id="@+id/muscleGroups"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/exerciseName"
+            android:text="Chest, Triceps, Shoulders"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_regular"/>
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>

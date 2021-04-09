@@ -26,15 +26,22 @@ public class StartUpActivity extends AppCompatActivity {
         buildButtons();
     }
 
-    private void buildButtons() {
+    public void buildButtons() {
+        // Open login activity
         mLoginButton = findViewById(R.id.loginButton);
         mLoginButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(intent);
+            Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(loginIntent);
+        });
+        // Open registration activity
+        mRegisterButton = findViewById(R.id.registerButton);
+        mRegisterButton.setOnClickListener(v -> {
+            Intent registerIntent = new Intent(getApplicationContext(), RegisterActivity.class);
+            startActivity(registerIntent);
         });
     }
 
-    private void buildViewPager() {
+    public void buildViewPager() {
         // Initializing the ViewPager Object
         mViewPager = findViewById(R.id.bgViewPager);
         // Initializing the ViewPagerAdapter

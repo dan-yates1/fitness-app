@@ -43,7 +43,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View itemView = mLayoutInflater.inflate(R.layout.item, container, false);
+        View itemView = mLayoutInflater.inflate(R.layout.item_workout, container, false);
         ImageView imageView = itemView.findViewById(R.id.imageViewMain);
         imageView.setImageResource(images[position]);
         imageView.setAlpha((float) 0.1);

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".layouts.ExercisesActivity"
+    android:background="@color/dark_grey">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomNavBar"
+        android:layout_below="@+id/searchEditText"
+        android:background="@color/dark_grey"
+        android:paddingHorizontal="25dp"
+        tools:listitem="@layout/recycler_view_item" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="@color/orange"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/nav"/>
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="EXERCISES"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/chestBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTextView"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Chest"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp"/>
+
+    <Button
+        android:id="@+id/legsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTextView"
+        android:layout_toEndOf="@+id/chestBtn"
+        android:layout_toRightOf="@+id/chestBtn"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Legs"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp" />
+
+    <Button
+        android:id="@+id/armsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTextView"
+        android:layout_toEndOf="@+id/legsBtn"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Arms"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp"
+        android:layout_toRightOf="@+id/legsBtn" />
+
+    <Button
+        android:id="@+id/shouldersBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chestBtn"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Shoulders"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chestBtn"
+        android:layout_toEndOf="@+id/shouldersBtn"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Back"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp"
+        android:layout_toRightOf="@+id/shouldersBtn" />
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/shouldersBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:alpha="0.75"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Exercise name"
+        android:paddingHorizontal="10dp"
+        android:textColorHint="@color/white" />
+
+</RelativeLayout>
