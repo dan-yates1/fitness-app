@@ -3,6 +3,8 @@ package com.example.fitnessapp.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import com.example.fitnessapp.R;
 import com.example.fitnessapp.models.Exercise;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder> {
     private ArrayList<Exercise> mExerciseList;
@@ -27,7 +30,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     }
 
     public ExerciseAdapter(ArrayList<Exercise> exerciseList) {
-        mExerciseList = exerciseList;
+        this.mExerciseList = exerciseList;
     }
 
     @NonNull
@@ -41,20 +44,29 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     @Override
     public void onBindViewHolder(@NonNull ExerciseViewHolder holder, int position) {
         Exercise currentItem = mExerciseList.get(position);
-        holder.mExerciseName.setText(currentItem.getName());
+        holder.mExerciseName.setText(currentItem.getName().toUpperCase());
 
-        if (currentItem.getPrimaryMuscles().size() > 1) {
-            holder.mMuscleGroups.setText(currentItem.getPrimaryMuscles().get(0));
-            for (int i = 1; i < currentItem.getPrimaryMuscles().size(); i++) {
-                holder.mMuscleGroups.append(", " + currentItem.getPrimaryMuscles().get(i));
+        // Combine primary and secondary muscles
+        ArrayList<String> allMuscles = currentItem.getPrimaryMuscles();
+        allMuscles.addAll(currentItem.getSecondaryMuscles());
+        // Display all muscles
+        if (allMuscles.size() > 1) {
+            holder.mMuscleGroups.setText(allMuscles.get(0));
+            for (int i = 1; i < allMuscles.size(); i++) {
+                holder.mMuscleGroups.append(" | " + allMuscles.get(i));
             }
-        } else if (currentItem.getPrimaryMuscles().size() == 1) {
-            holder.mMuscleGroups.setText(currentItem.getPrimaryMuscles().get(0));
+        } else if (allMuscles.size() == 1) {
+            holder.mMuscleGroups.setText(allMuscles.get(0));
         }
     }
 
     @Override
     public int getItemCount() {
         return mExerciseList.size();
+    }
+
+    public void filterList(ArrayList<Exercise> filteredList) {
+        mExerciseList = filteredList;
+        notifyDataSetChanged();
     }
 }

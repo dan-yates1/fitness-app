@@ -13,7 +13,7 @@
         <activity android:name=".layouts.MainActivity" />
         <activity android:name=".layouts.LoginActivity" />
         <activity android:name=".layouts.StartUpActivity" />
-        <activity android:name=".layouts.ExercisesActivity">
+        <activity android:name=".layouts.ExercisesActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

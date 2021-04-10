@@ -15,7 +15,7 @@
         android:layout_below="@+id/searchEditText"
         android:background="@color/dark_grey"
         android:paddingHorizontal="30dp"
-        tools:listitem="@layout/recycler_view_item" />
+        tools:listitem="@layout/item_exercise" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavBar"
@@ -61,7 +61,7 @@
         android:layout_below="@+id/titleTextView"
         android:layout_toEndOf="@+id/chestBtn"
         android:layout_toRightOf="@+id/chestBtn"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Legs"
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/titleTextView"
         android:layout_toEndOf="@+id/legsBtn"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Arms"
@@ -109,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/chestBtn"
         android:layout_toEndOf="@+id/shouldersBtn"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Back"
@@ -135,9 +135,10 @@
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:alpha="0.75"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:background="@drawable/edit_text_bg"
         android:hint="Exercise name"
-        android:paddingHorizontal="10dp"
-        android:textColorHint="@color/white" />
+        android:paddingHorizontal="10dp" />
 
 </RelativeLayout>
