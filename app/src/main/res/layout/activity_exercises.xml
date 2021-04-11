@@ -55,7 +55,7 @@
         app:cornerRadius="30dp"/>
 
     <Button
-        android:id="@+id/legsBtn"
+        android:id="@+id/hamstringsBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titleTextView"
@@ -64,7 +64,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Legs"
+        android:text="Hams"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -72,21 +72,21 @@
         app:cornerRadius="30dp" />
 
     <Button
-        android:id="@+id/armsBtn"
+        android:id="@+id/quadsBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titleTextView"
-        android:layout_toEndOf="@+id/legsBtn"
-        android:layout_marginLeft="15dp"
+        android:layout_toEndOf="@+id/hamstringsBtn"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Arms"
+        android:text="Quads"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
         app:cornerRadius="30dp"
-        android:layout_toRightOf="@+id/legsBtn" />
+        android:layout_toRightOf="@+id/hamstringsBtn" />
 
     <Button
         android:id="@+id/shouldersBtn"
@@ -137,11 +137,42 @@
         app:cornerRadius="30dp"
         android:layout_toRightOf="@+id/shouldersBtn" />
 
+    <Button
+        android:id="@+id/bicepsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shouldersBtn"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Biceps"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp"/>
+
+    <Button
+        android:id="@+id/tricepsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shouldersBtn"
+        android:layout_toRightOf="@+id/bicepsBtn"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Triceps"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp"/>
+
     <EditText
         android:id="@+id/searchEditText"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_below="@+id/shouldersBtn"
+        android:layout_below="@+id/bicepsBtn"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"

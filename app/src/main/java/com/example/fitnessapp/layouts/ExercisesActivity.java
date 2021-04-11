@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class ExercisesActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ExerciseAdapter mAdapter;
-    private Button mArmsBtn, mChestBtn, mLegsBtn, mShouldersBtn, mBackBtn, mAllBtn;
+    private Button mBicepsBtn, mTricepsBtn, mChestBtn, mQuadsBtn, mShouldersBtn, mBackBtn, mAllBtn, mHamsBtn;
     private EditText mSearchBar;
     private ArrayList<Exercise> mExerciseList;
     private ArrayList<String> mMusclesFilter;
@@ -82,15 +82,21 @@ public class ExercisesActivity extends AppCompatActivity {
 
     private void buildFilterButtons() {
         mMusclesFilter = new ArrayList<>();
-        mArmsBtn = findViewById(R.id.armsBtn);
+        mBicepsBtn = findViewById(R.id.bicepsBtn);
+        mTricepsBtn = findViewById(R.id.tricepsBtn);
         mChestBtn = findViewById(R.id.chestBtn);
-        mLegsBtn = findViewById(R.id.legsBtn);
+        mQuadsBtn = findViewById(R.id.quadsBtn);
+        mHamsBtn = findViewById(R.id.hamstringsBtn);
         mShouldersBtn = findViewById(R.id.shouldersBtn);
         mBackBtn = findViewById(R.id.backBtn);
         mAllBtn = findViewById(R.id.allBtn);
 
-        mArmsBtn.setOnClickListener(v -> {
-            filterByMuscle("Arms");
+        mBicepsBtn.setOnClickListener(v -> {
+            filterByMuscle("Biceps");
+        });
+
+        mTricepsBtn.setOnClickListener(v -> {
+            filterByMuscle("Triceps");
         });
 
         mChestBtn.setOnClickListener(v -> {
@@ -105,10 +111,13 @@ public class ExercisesActivity extends AppCompatActivity {
             filterByMuscle("Shoulders");
         });
 
-        mLegsBtn.setOnClickListener(v -> {
-            //filterByMuscle("");
+        mQuadsBtn.setOnClickListener(v -> {
+            filterByMuscle("Quads");
         });
 
+        mHamsBtn.setOnClickListener(v -> {
+            filterByMuscle("Hamstrings");
+        });
 
         mAllBtn.setOnClickListener(v -> {
             mAdapter.filterList(mExerciseList);
