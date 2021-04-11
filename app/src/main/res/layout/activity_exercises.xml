@@ -120,6 +120,23 @@
         app:cornerRadius="30dp"
         android:layout_toRightOf="@+id/shouldersBtn" />
 
+    <Button
+        android:id="@+id/allBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chestBtn"
+        android:layout_toEndOf="@+id/backBtn"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="All"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp"
+        android:layout_toRightOf="@+id/shouldersBtn" />
+
     <EditText
         android:id="@+id/searchEditText"
         android:layout_width="wrap_content"

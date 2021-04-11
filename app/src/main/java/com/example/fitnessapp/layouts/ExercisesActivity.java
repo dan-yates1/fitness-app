@@ -14,13 +14,18 @@ import android.widget.EditText;
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.adapters.ExerciseAdapter;
 import com.example.fitnessapp.models.Exercise;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class ExercisesActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ExerciseAdapter mAdapter;
-    private Button mArmsBtn, mChestBtn, mLegsBtn, mShouldersBtn, mBackBtn;
+    private Button mArmsBtn, mChestBtn, mLegsBtn, mShouldersBtn, mBackBtn, mAllBtn;
     private EditText mSearchBar;
     private ArrayList<Exercise> mExerciseList;
     private ArrayList<String> mMusclesFilter;
@@ -50,15 +55,25 @@ public class ExercisesActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                filter(s.toString());
+                filterByName(s.toString());
             }
         });
     }
 
-    private void filter(String text) {
+    private void filterByName(String text) {
         ArrayList<Exercise> filteredList = new ArrayList<>();
         for (Exercise item : mExerciseList) {
             if (item.getName().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        mAdapter.filterList(filteredList);
+    }
+
+    private void filterByMuscle(String text) {
+        ArrayList<Exercise> filteredList = new ArrayList<>();
+        for (Exercise item : mExerciseList) {
+            if (item.getAllMuscles().contains(text)) {
                 filteredList.add(item);
             }
         }
@@ -72,30 +87,56 @@ public class ExercisesActivity extends AppCompatActivity {
         mLegsBtn = findViewById(R.id.legsBtn);
         mShouldersBtn = findViewById(R.id.shouldersBtn);
         mBackBtn = findViewById(R.id.backBtn);
+        mAllBtn = findViewById(R.id.allBtn);
 
         mArmsBtn.setOnClickListener(v -> {
-            if (!mMusclesFilter.contains("Arms")) {
-                mMusclesFilter.add("Arms");
-            }
+            filterByMuscle("Arms");
+        });
+
+        mChestBtn.setOnClickListener(v -> {
+            filterByMuscle("Chest");
+        });
+
+        mBackBtn.setOnClickListener(v -> {
+            filterByMuscle("Back");
+        });
+
+        mShouldersBtn.setOnClickListener(v -> {
+            filterByMuscle("Shoulders");
+        });
+
+        mLegsBtn.setOnClickListener(v -> {
+            //filterByMuscle("");
+        });
+
+
+        mAllBtn.setOnClickListener(v -> {
+            mAdapter.filterList(mExerciseList);
         });
     }
 
     private void buildExerciseList() {
-        ArrayList<String> primaryMuscles = new ArrayList<>();
-        primaryMuscles.add("Chest");
-        primaryMuscles.add("Triceps");
-        ArrayList<String> secondaryMuscles = new ArrayList<>();
-        primaryMuscles.add("Abs");
-
+        // Parse list of exercises from JSON file located in assets folder
         mExerciseList = new ArrayList<>();
-        mExerciseList.add(new Exercise("Bench Press", primaryMuscles, secondaryMuscles, new ArrayList<>()));
-        mExerciseList.add(new Exercise("Squat", new ArrayList<>(), new ArrayList<>(), new ArrayList<>()));
-        mExerciseList.add(new Exercise("Leg Press", new ArrayList<>(), new ArrayList<>(), new ArrayList<>()));
-        mExerciseList.add(new Exercise("Barbell Curl", new ArrayList<>(), new ArrayList<>(), new ArrayList<>()));
-        mExerciseList.add(new Exercise("Barbell Curl", new ArrayList<>(), new ArrayList<>(), new ArrayList<>()));
-        mExerciseList.add(new Exercise("Barbell Curl", new ArrayList<>(), new ArrayList<>(), new ArrayList<>()));
-        mExerciseList.add(new Exercise("Bench Press", primaryMuscles, new ArrayList<>(), new ArrayList<>()));
-        mExerciseList.add(new Exercise("Bench Press", primaryMuscles, new ArrayList<>(), new ArrayList<>()));
+        Gson gson = new Gson();
+        Type exerciseListType = new TypeToken<ArrayList<Exercise>>(){}.getType();
+        mExerciseList = gson.fromJson(loadJSONFromAsset("exercises.json"), exerciseListType);
+    }
+
+    public String loadJSONFromAsset(String fileName) {
+        String json;
+        try {
+            InputStream is = getApplicationContext().getAssets().open(fileName);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
     private void buildRecyclerView() {

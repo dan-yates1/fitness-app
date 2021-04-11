@@ -1,28 +1,26 @@
-{
-  "exercises": [
-    {
-      "name": "Bench Press",
-      "primary_muscles": ["Chest", "Triceps"],
-      "secondary_muscles": ["Abs", "Back"],
-      "equipment": ["Barbell"]
-    },
-    {
-      "name": "Squat",
-      "primary_muscles": ["Quads", "Hamstrings", "Glutes"],
-      "secondary_muscles": ["Abs"],
-      "equipment": ["Barbell"]
-    },
-    {
-      "name": "Bench Press",
-      "primary_muscles": ["Chest", "Triceps"],
-      "secondary_muscles": ["Abs", "Back"],
-      "equipment": ["Barbell"]
-    },
-    {
-      "name": "Squat",
-      "primary_muscles": ["Quads", "Hamstrings", "Glutes"],
-      "secondary_muscles": ["Abs"],
-      "equipment": ["Barbell"]
-    }
-  ]
-}
+[
+  {
+    "name": "Bench Press",
+    "primary_muscles": ["Chest", "Triceps"],
+    "secondary_muscles": ["Abs"],
+    "equipment": ["Barbell"]
+  },
+  {
+    "name": "Squat",
+    "primary_muscles": ["Quads", "Hamstrings", "Glutes"],
+    "secondary_muscles": ["Abs"],
+    "equipment": ["Barbell"]
+  },
+  {
+    "name": "Military Press",
+    "primary_muscles": ["Shoulders"],
+    "secondary_muscles": ["Abs", "Back"],
+    "equipment": ["Barbell"]
+  },
+  {
+    "name": "Deadlift",
+    "primary_muscles": ["Back", "Hamstrings"],
+    "secondary_muscles": ["Quads", "Abs"],
+    "equipment": ["Barbell"]
+  }
+]

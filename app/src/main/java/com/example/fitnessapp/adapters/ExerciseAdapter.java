@@ -45,19 +45,19 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     public void onBindViewHolder(@NonNull ExerciseViewHolder holder, int position) {
         Exercise currentItem = mExerciseList.get(position);
         holder.mExerciseName.setText(currentItem.getName().toUpperCase());
-
-        // Combine primary and secondary muscles
-        ArrayList<String> allMuscles = currentItem.getPrimaryMuscles();
-        allMuscles.addAll(currentItem.getSecondaryMuscles());
-        // Display all muscles
+        // Display all muscles on CardView
+        ArrayList<String> allMuscles = currentItem.getAllMuscles();
+        String musclesStr = new String();
         if (allMuscles.size() > 1) {
-            holder.mMuscleGroups.setText(allMuscles.get(0));
+            musclesStr = allMuscles.get(0);
             for (int i = 1; i < allMuscles.size(); i++) {
-                holder.mMuscleGroups.append(" | " + allMuscles.get(i));
+                musclesStr += (" | " + allMuscles.get(i));
             }
         } else if (allMuscles.size() == 1) {
-            holder.mMuscleGroups.setText(allMuscles.get(0));
+            musclesStr = allMuscles.get(0);
+        }else {
         }
+        holder.mMuscleGroups.setText(musclesStr);
     }
 
     @Override
