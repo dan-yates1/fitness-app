@@ -22,7 +22,7 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class ExercisesActivity extends AppCompatActivity {
+public class ExercisesActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView mRecyclerView;
     private ExerciseAdapter mAdapter;
     private Button mBicepsBtn, mTricepsBtn, mChestBtn, mQuadsBtn, mShouldersBtn, mBackBtn, mAllBtn, mHamsBtn;
@@ -45,9 +45,7 @@ public class ExercisesActivity extends AppCompatActivity {
         mSearchBar = findViewById(R.id.searchEditText);
         mSearchBar.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -91,37 +89,14 @@ public class ExercisesActivity extends AppCompatActivity {
         mBackBtn = findViewById(R.id.backBtn);
         mAllBtn = findViewById(R.id.allBtn);
 
-        mBicepsBtn.setOnClickListener(v -> {
-            filterByMuscle("Biceps");
-        });
-
-        mTricepsBtn.setOnClickListener(v -> {
-            filterByMuscle("Triceps");
-        });
-
-        mChestBtn.setOnClickListener(v -> {
-            filterByMuscle("Chest");
-        });
-
-        mBackBtn.setOnClickListener(v -> {
-            filterByMuscle("Back");
-        });
-
-        mShouldersBtn.setOnClickListener(v -> {
-            filterByMuscle("Shoulders");
-        });
-
-        mQuadsBtn.setOnClickListener(v -> {
-            filterByMuscle("Quads");
-        });
-
-        mHamsBtn.setOnClickListener(v -> {
-            filterByMuscle("Hamstrings");
-        });
-
-        mAllBtn.setOnClickListener(v -> {
-            mAdapter.filterList(mExerciseList);
-        });
+        mBicepsBtn.setOnClickListener(this);
+        mTricepsBtn.setOnClickListener(this);
+        mChestBtn.setOnClickListener(this);
+        mBackBtn.setOnClickListener(this);
+        mShouldersBtn.setOnClickListener(this);
+        mQuadsBtn.setOnClickListener(this);
+        mHamsBtn.setOnClickListener(this);
+        mAllBtn.setOnClickListener(this);
     }
 
     private void buildExerciseList() {
@@ -154,5 +129,35 @@ public class ExercisesActivity extends AppCompatActivity {
         mAdapter = new ExerciseAdapter(mExerciseList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.allBtn:
+                mAdapter.filterList(mExerciseList);
+                break;
+            case R.id.chestBtn:
+                filterByMuscle("Chest");
+                break;
+            case R.id.quadsBtn:
+                filterByMuscle("Quads");
+                break;
+            case R.id.hamstringsBtn:
+                filterByMuscle("Hamstrings");
+                break;
+            case R.id.bicepsBtn:
+                filterByMuscle("Biceps");
+                break;
+            case R.id.tricepsBtn:
+                filterByMuscle("Triceps");
+                break;
+            case R.id.backBtn:
+                filterByMuscle("Back");
+                break;
+            case R.id.shouldersBtn:
+                filterByMuscle("Shoulders");
+                break;
+        }
     }
 }

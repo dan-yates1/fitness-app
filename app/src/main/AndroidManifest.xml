@@ -13,8 +13,8 @@
         <activity android:name=".layouts.RegisterActivity"></activity>
         <activity android:name=".layouts.MainActivity" />
         <activity android:name=".layouts.LoginActivity" />
-        <activity android:name=".layouts.StartUpActivity" />
-        <activity android:name=".layouts.ExercisesActivity" >
+        <activity android:name=".layouts.ExercisesActivity" />
+        <activity android:name=".layouts.StartUpActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
