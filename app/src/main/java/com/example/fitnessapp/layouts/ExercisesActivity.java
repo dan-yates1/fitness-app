@@ -28,7 +28,6 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
     private Button mBicepsBtn, mTricepsBtn, mChestBtn, mQuadsBtn, mShouldersBtn, mBackBtn, mAllBtn, mHamsBtn;
     private EditText mSearchBar;
     private ArrayList<Exercise> mExerciseList;
-    private ArrayList<String> mMusclesFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +78,6 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void buildFilterButtons() {
-        mMusclesFilter = new ArrayList<>();
         mBicepsBtn = findViewById(R.id.bicepsBtn);
         mTricepsBtn = findViewById(R.id.tricepsBtn);
         mChestBtn = findViewById(R.id.chestBtn);
@@ -108,6 +106,7 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
     }
 
     public String loadJSONFromAsset(String fileName) {
+        // Read JSON file into string
         String json;
         try {
             InputStream is = getApplicationContext().getAssets().open(fileName);

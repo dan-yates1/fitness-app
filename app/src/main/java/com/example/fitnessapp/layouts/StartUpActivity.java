@@ -14,7 +14,7 @@ import com.example.fitnessapp.adapters.ViewPagerAdapter;
 public class StartUpActivity extends AppCompatActivity {
     ViewPager mViewPager;
     ViewPagerAdapter mViewPagerAdapter;
-    private int[] images = {R.drawable.mountain1, R.drawable.mountain2, R.drawable.mountain3};
+    private int[] images = {R.drawable.bg_img, R.drawable.mountain1, R.drawable.mountain2, R.drawable.mountain3};
     Button mLoginButton, mRegisterButton;
 
     @Override
