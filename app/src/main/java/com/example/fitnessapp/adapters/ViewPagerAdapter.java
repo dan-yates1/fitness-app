@@ -44,12 +44,13 @@ public class ViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View itemView = mLayoutInflater.inflate(R.layout.item_workout, container, false);
+        /*
         ImageView imageView = itemView.findViewById(R.id.imageViewMain);
         imageView.setImageResource(images[position]);
         imageView.setAlpha((float) 0.1);
         imageView.setScaleType(ImageView.ScaleType.CENTER);
         Objects.requireNonNull(container).addView(itemView);
-
+         */
         return itemView;
     }
 }

@@ -7,46 +7,42 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.adapters.ViewPagerAdapter;
 
-public class StartUpActivity extends AppCompatActivity {
-    ViewPager mViewPager;
-    ViewPagerAdapter mViewPagerAdapter;
+public class StartUpActivity extends AppCompatActivity implements View.OnClickListener {
     private int[] images = {R.drawable.bg_img, R.drawable.mountain1, R.drawable.mountain2, R.drawable.mountain3};
-    Button mLoginButton, mRegisterButton;
+    Button mRegisterButton;
+    TextView mLoginText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_up);
 
-        buildViewPager();
-        buildButtons();
+        setUpInterface();
     }
 
-    public void buildButtons() {
-        // Open login activity
-        mLoginButton = findViewById(R.id.loginButton);
-        mLoginButton.setOnClickListener(v -> {
-            Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(loginIntent);
-        });
-        // Open registration activity
+    public void setUpInterface() {
+        mLoginText = findViewById(R.id.loginTextView);
         mRegisterButton = findViewById(R.id.registerButton);
-        mRegisterButton.setOnClickListener(v -> {
-            Intent registerIntent = new Intent(getApplicationContext(), RegisterActivity.class);
-            startActivity(registerIntent);
-        });
+
+        mLoginText.setOnClickListener(this);
+        mRegisterButton.setOnClickListener(this);
     }
 
-    public void buildViewPager() {
-        // Initializing the ViewPager Object
-        mViewPager = findViewById(R.id.bgViewPager);
-        // Initializing the ViewPagerAdapter
-        mViewPagerAdapter = new ViewPagerAdapter(StartUpActivity.this, images);
-        // Adding the Adapter to the ViewPager
-        mViewPager.setAdapter(mViewPagerAdapter);
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.loginButton:
+                Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(loginIntent);
+                break;
+            case R.id.registerButton:
+                Intent registerIntent = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(registerIntent);
+        }
     }
 }

@@ -34,10 +34,10 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/textView"
-        android:text="Where we use AI to help you get fitter and stronger and tgus lala"
+        android:text="Where we use AI to help you get fitter and stronger."
         android:textColor="@color/white"
         android:fontFamily="@font/roboto_regular"
         android:textAlignment="center"
@@ -47,7 +47,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-
+<!--
     <TextView
         android:id="@+id/emailTextView"
         android:layout_width="wrap_content"
@@ -59,13 +59,13 @@
         android:textColor="@color/white"
         android:fontFamily="@font/roboto_bold"
         android:textSize="20sp" />
-
+-->
     <EditText
         android:id="@+id/loginEditText"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@id/emailTextView"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/textView2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
@@ -77,8 +77,12 @@
         android:fontFamily="@font/roboto_regular"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:background="@drawable/edit_text_bg"/>
-
+        android:background="@drawable/edit_text_bg"
+        android:hint="EMAIL"
+        android:padding="10dp"
+        android:textColorHint="@color/white"
+        android:alpha="0.75"/>
+<!--
     <TextView
         android:id="@+id/passwordTextView"
         android:layout_width="wrap_content"
@@ -90,13 +94,13 @@
         android:textColor="@color/white"
         android:fontFamily="@font/roboto_bold"
         android:textSize="20sp" />
-
+-->
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@id/passwordTextView"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/loginEditText"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
@@ -108,7 +112,12 @@
         android:fontFamily="@font/roboto_regular"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:background="@drawable/edit_text_bg"/>
+        android:background="@drawable/edit_text_bg"
+        android:hint="PASSWORD"
+        android:padding="10dp"
+        android:textColorHint="@color/white"
+        android:alpha="0.75"
+        android:password="true"/>
 
     <Button
         android:id="@+id/loginButton"
@@ -116,7 +125,7 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="50dp"
         android:fontFamily="@font/roboto_bold"
         android:text="LOGIN"
         android:textAllCaps="false"

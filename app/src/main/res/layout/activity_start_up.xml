@@ -13,6 +13,13 @@
         android:layout_height="match_parent"/>
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_img"
+        android:alpha="0.05"
+        android:scaleType="center"/>
+
+    <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,10 +34,10 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:fontFamily="@font/roboto_regular"
-        android:text="Develop your confidence as you get stronger"
-        android:textSize="18sp"
+        android:text="Develop your confidence as you get stronger."
+        android:textSize="19sp"
         android:textColor="@color/white"/>
-
+<!--
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,21 +59,32 @@
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
         app:cornerRadius="30dp" />
-
+-->
     <Button
         android:id="@+id/registerButton"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="25dp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="Register"
+        android:layout_marginBottom="100dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="GET STARTED"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
         app:cornerRadius="30dp" />
+
+    <TextView
+        android:id="@+id/loginTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:text="Already have an account? Click here"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="16sp"/>
 
 </RelativeLayout>
