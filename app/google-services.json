@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "190414063300",
+    "project_id": "fitnessbot-a877f",
+    "storage_bucket": "fitnessbot-a877f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190414063300:android:555eef2bdb49113b2deb91",
+        "android_client_info": {
+          "package_name": "com.example.fitnessapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190414063300-pqv46dprbt61hpstp35elo23oq2rctbr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhZ7VR7AsJsed-TaW43rRHwjglUMY4OW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190414063300-pqv46dprbt61hpstp35elo23oq2rctbr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
