@@ -20,7 +20,8 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     private ArrayList<Exercise> mExerciseList;
 
     public static class ExerciseViewHolder extends RecyclerView.ViewHolder {
-        private TextView mExerciseName, mMuscleGroups;
+        private final TextView mExerciseName;
+        private final TextView mMuscleGroups;
 
         public ExerciseViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -47,7 +48,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
         holder.mExerciseName.setText(currentItem.getName().toUpperCase());
         // Display all muscles on CardView
         ArrayList<String> allMuscles = currentItem.getAllMuscles();
-        String musclesStr = new String();
+        String musclesStr = "";
         if (allMuscles.size() > 1) {
             musclesStr = allMuscles.get(0);
             for (int i = 1; i < allMuscles.size(); i++) {

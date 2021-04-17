@@ -35,13 +35,11 @@ public class StartUpActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.loginButton:
-                Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(loginIntent);
+            case R.id.loginTextView:
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 break;
             case R.id.registerButton:
-                Intent registerIntent = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(registerIntent);
+                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
         }
     }
 }

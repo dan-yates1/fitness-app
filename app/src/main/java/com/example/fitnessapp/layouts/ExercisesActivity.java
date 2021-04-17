@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class ExercisesActivity extends AppCompatActivity implements View.OnClickListener {
@@ -114,7 +115,7 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            json = new String(buffer, "UTF-8");
+            json = new String(buffer, StandardCharsets.UTF_8);
         } catch (IOException ex) {
             ex.printStackTrace();
             return null;

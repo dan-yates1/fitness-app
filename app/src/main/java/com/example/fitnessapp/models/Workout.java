@@ -10,11 +10,11 @@ public class Workout {
     private String mExperience;
 
     public Workout() {
-        this.mGender = new String();
+        this.mGender = "";
         this.mEquipment = new ArrayList<>();
         this.mAvailability = 0;
-        this.mGoal = new String();
-        this.mExperience = new String();
+        this.mGoal = "";
+        this.mExperience = "";
     }
 
     public String getGender() {

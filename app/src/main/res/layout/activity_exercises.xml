@@ -185,6 +185,7 @@
         android:alpha="0.75"
         android:textColorHint="@color/white"
         android:textColor="@color/white"
+        android:textSize="18sp"
         android:background="@drawable/edit_text_bg"
         android:hint="Exercise name"
         android:paddingHorizontal="10dp" />

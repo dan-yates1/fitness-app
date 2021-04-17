@@ -15,8 +15,8 @@ import com.example.fitnessapp.R;
 import java.util.Objects;
 
 public class ViewPagerAdapter extends PagerAdapter {
-    private Context context;
-    private int[] images;
+    private final Context context;
+    private final int[] images;
     LayoutInflater mLayoutInflater;
 
     public ViewPagerAdapter(Context context, int[] images) {
@@ -32,7 +32,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == ((LinearLayout) object);
+        return view == object;
     }
 
     @Override
