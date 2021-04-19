@@ -7,6 +7,17 @@
     tools:context=".layouts.RegisterActivity"
     android:background="@color/dark_grey">
 
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By checking this box I agree that I am over 18 years\nold and have read the terms and conditions"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_below="@id/passwordEditText"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"/>
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -63,7 +74,7 @@
         android:id="@+id/emailEditText"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:layout_below="@id/nameEditText"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -95,7 +106,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="25dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="366dp"
         android:alpha="0.75"

@@ -1,28 +1,34 @@
 package com.example.fitnessapp.layouts;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.models.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
+    public static final String TAG = "TAG";
     EditText mNameEditText, mEmailEditText, mPasswordEditText;
     Button mNextButton;
-    private FirebaseAuth fAuth;
+    CheckBox mCheckBox;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +36,13 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         setUpInterface();
-
-        // Check if user is already signed in and take them to main page
-        /*if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
-        }*/
     }
 
     private User createUserObject() {
-        User user = new User(mNameEditText.getText().toString().trim(),
-                mEmailEditText.getText().toString().trim(),
-                mPasswordEditText.getText().toString().trim());
-        return user;
+        String name = mNameEditText.getText().toString().trim();
+        String email = mEmailEditText.getText().toString().trim();
+        String password = mPasswordEditText.getText().toString().trim();
+        return new User(name, email, password);
     }
 
     private boolean checkCredentials() {
@@ -67,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         if (TextUtils.isEmpty(password)) {
-            mNameEditText.setError("Password is required!");
+            mPasswordEditText.setError("Password is required!");
             valid = false;
         }
 
@@ -76,25 +76,30 @@ public class RegisterActivity extends AppCompatActivity {
             valid = false;
         }
 
+        if (!mCheckBox.isChecked()) {
+            mCheckBox.setError("Please agree to the terms!");
+            valid = false;
+        }
+
         return valid;
     }
 
     private void setUpInterface() {
         fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         mNameEditText = findViewById(R.id.nameEditText);
         mPasswordEditText = findViewById(R.id.passwordEditText);
         mEmailEditText = findViewById(R.id.emailEditText);
+        mCheckBox = findViewById(R.id.checkBox);
 
         mNextButton = findViewById(R.id.registerButton);
-        mNextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkCredentials()) {
-                    User user = createUserObject();
-                    addUserToFirebase(user);
-                    //startNextActivity(user);
-                }
+        mNextButton.setOnClickListener(v -> {
+            if (checkCredentials()) {
+                User user = createUserObject();
+                addUserToFirebase(user);
+                addDataToDatabase(user);
+                startNextActivity(user);
             }
         });
     }
@@ -110,9 +115,20 @@ public class RegisterActivity extends AppCompatActivity {
                 addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(getApplicationContext(), "User account created successfully!", Toast.LENGTH_LONG).show();
+                        userID = fAuth.getCurrentUser().getUid();
                     } else {
                         Toast.makeText(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
+    }
+
+    private void addDataToDatabase(User user) {
+        DocumentReference docRef = fStore.collection("users").document(userID);
+        Map<String, Object> userMap = new HashMap<>();
+        userMap.put("fName", user.getName());
+        userMap.put("email", user.getEmail());
+        docRef.set(userMap).addOnSuccessListener(aVoid -> {
+            Log.d(TAG, "onSuccess: User profile is create for " + userID);
+        });
     }
 }

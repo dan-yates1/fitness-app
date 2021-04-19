@@ -11,10 +11,12 @@ import android.widget.TextView;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.adapters.ViewPagerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class StartUpActivity extends AppCompatActivity implements View.OnClickListener {
     Button mRegisterButton;
     TextView mLoginText;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +24,20 @@ public class StartUpActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_start_up);
 
         setUpInterface();
+        //autoLoginUser();
+    }
+
+    private void autoLoginUser() {
+        // Check if user is already signed in and take them to main page
+        if (fAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
     }
 
     public void setUpInterface() {
+        fAuth = FirebaseAuth.getInstance();
+
         mLoginText = findViewById(R.id.loginTextView);
         mRegisterButton = findViewById(R.id.registerButton);
 

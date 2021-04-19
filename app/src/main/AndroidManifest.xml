@@ -2,21 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fitnessapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:largeHeap="true"
         android:theme="@style/Theme.FitnessApp">
-        <activity android:name=".layouts.RegisterActivity"></activity>
+        <activity android:name=".layouts.ProfileActivity"></activity>
+        <activity android:name=".layouts.DataEntryActivity" />
+        <activity android:name=".layouts.RegisterActivity" />
         <activity android:name=".layouts.MainActivity" />
         <activity android:name=".layouts.LoginActivity" />
         <activity android:name=".layouts.ExercisesActivity" />
-        <activity android:name=".layouts.StartUpActivity" >
+        <activity android:name=".layouts.StartUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
