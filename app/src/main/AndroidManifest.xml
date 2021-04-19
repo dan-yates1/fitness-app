@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessApp">
-        <activity android:name=".layouts.ProfileActivity"></activity>
+        <activity android:name=".layouts.WorkoutActivity"></activity>
+        <activity android:name=".layouts.ProfileActivity" />
         <activity android:name=".layouts.DataEntryActivity" />
         <activity android:name=".layouts.RegisterActivity" />
         <activity android:name=".layouts.MainActivity" />

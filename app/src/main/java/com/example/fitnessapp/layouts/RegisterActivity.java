@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.models.User;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -28,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     CheckBox mCheckBox;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    String userID;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +77,10 @@ public class RegisterActivity extends AppCompatActivity {
             valid = false;
         }
 
-        if (!mCheckBox.isChecked()) {
+        /* (!mCheckBox.isChecked()) {
             mCheckBox.setError("Please agree to the terms!");
             valid = false;
-        }
+        }*/
 
         return valid;
     }
@@ -98,8 +99,8 @@ public class RegisterActivity extends AppCompatActivity {
             if (checkCredentials()) {
                 User user = createUserObject();
                 addUserToFirebase(user);
-                addDataToDatabase(user);
                 startNextActivity(user);
+                finish();
             }
         });
     }
@@ -115,7 +116,9 @@ public class RegisterActivity extends AppCompatActivity {
                 addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(getApplicationContext(), "User account created successfully!", Toast.LENGTH_LONG).show();
-                        userID = fAuth.getCurrentUser().getUid();
+                        userId = fAuth.getCurrentUser().getUid();
+                        // Add user data to firestore database
+                        addDataToDatabase(user);
                     } else {
                         Toast.makeText(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
@@ -123,12 +126,15 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void addDataToDatabase(User user) {
-        DocumentReference docRef = fStore.collection("users").document(userID);
+        DocumentReference docRef = fStore.collection("users").document(userId);
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("fName", user.getName());
         userMap.put("email", user.getEmail());
-        docRef.set(userMap).addOnSuccessListener(aVoid -> {
-            Log.d(TAG, "onSuccess: User profile is create for " + userID);
+        docRef.set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d(TAG, "onSuccess: User profile is created for" + userId);
+            }
         });
     }
 }

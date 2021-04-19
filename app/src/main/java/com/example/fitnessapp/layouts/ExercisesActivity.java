@@ -1,9 +1,12 @@
 package com.example.fitnessapp.layouts;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,6 +17,7 @@ import android.widget.EditText;
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.adapters.ExerciseAdapter;
 import com.example.fitnessapp.models.Exercise;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -29,7 +33,9 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
     private Button mBicepsBtn, mTricepsBtn, mChestBtn, mQuadsBtn, mShouldersBtn, mBackBtn, mAllBtn, mHamsBtn;
     private EditText mSearchBar;
     private ArrayList<Exercise> mExerciseList;
+    BottomNavigationView mBottomNav;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +45,7 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
         buildExerciseList();
         buildRecyclerView();
         buildSearchBar();
+        buildNavBar();
     }
 
     private void buildSearchBar() {
@@ -98,6 +105,7 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
         mAllBtn.setOnClickListener(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void buildExerciseList() {
         // Parse list of exercises from JSON file located in assets folder
         mExerciseList = new ArrayList<>();
@@ -106,6 +114,7 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
         mExerciseList = gson.fromJson(loadJSONFromAsset("exercises.json"), exerciseListType);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public String loadJSONFromAsset(String fileName) {
         // Read JSON file into string
         String json;
@@ -159,5 +168,24 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
                 filterByMuscle("Shoulders");
                 break;
         }
+    }
+
+    public void buildNavBar() {
+        mBottomNav = findViewById(R.id.bottomNavBar);
+        mBottomNav.setSelectedItemId(R.id.nav_profile);
+        mBottomNav.setSelectedItemId(R.id.nav_exercises);
+        mBottomNav.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.nav_home:
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                case R.id.nav_exercises:
+                    return true;
+                case R.id.nav_profile:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                case R.id.nav_workout:
+                    startActivity(new Intent(getApplicationContext(), WorkoutActivity.class));
+            }
+            return false;
+        });
     }
 }
