@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".layouts.RegisterActivity"
-    android:background="@color/dark_grey">
+    android:background="@color/dark_grey"
+    android:id="@+id/mainLayout">
 
     <ImageView
         android:layout_width="match_parent"

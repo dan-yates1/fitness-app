@@ -31,7 +31,6 @@ public class StartUpActivity extends AppCompatActivity implements View.OnClickLi
         // Check if user is already signed in and take them to main page
         if (fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
         }
     }
 

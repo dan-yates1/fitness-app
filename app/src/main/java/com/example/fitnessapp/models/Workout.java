@@ -1,8 +1,9 @@
 package com.example.fitnessapp.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Workout {
+public class Workout implements Serializable {
     private String mGender;
     private ArrayList<String> mEquipment;
     private int mAvailability;
@@ -53,7 +54,7 @@ public class Workout {
         return mExperience;
     }
 
-    public void setmxperience(String experience) {
+    public void setExperience(String experience) {
         this.mExperience = experience;
     }
 }

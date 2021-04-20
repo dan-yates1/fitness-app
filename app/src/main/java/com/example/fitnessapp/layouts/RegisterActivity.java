@@ -77,10 +77,10 @@ public class RegisterActivity extends AppCompatActivity {
             valid = false;
         }
 
-        /* (!mCheckBox.isChecked()) {
+        if (!mCheckBox.isChecked()) {
             mCheckBox.setError("Please agree to the terms!");
             valid = false;
-        }*/
+        }
 
         return valid;
     }
@@ -99,16 +99,9 @@ public class RegisterActivity extends AppCompatActivity {
             if (checkCredentials()) {
                 User user = createUserObject();
                 addUserToFirebase(user);
-                startNextActivity(user);
                 finish();
             }
         });
-    }
-
-    private void startNextActivity(User user) {
-        // TODO Pass user object to MainActivity
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
     }
 
     private void addUserToFirebase(User user) {
@@ -117,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         Toast.makeText(getApplicationContext(), "User account created successfully!", Toast.LENGTH_LONG).show();
                         userId = fAuth.getCurrentUser().getUid();
-                        // Add user data to firestore database
+                        // Add user data to fire store database
                         addDataToDatabase(user);
                     } else {
                         Toast.makeText(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -130,11 +123,10 @@ public class RegisterActivity extends AppCompatActivity {
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("fName", user.getName());
         userMap.put("email", user.getEmail());
-        docRef.set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.d(TAG, "onSuccess: User profile is created for" + userId);
-            }
+        docRef.set(userMap).addOnSuccessListener(aVoid -> {
+            Log.d(TAG, "onSuccess: User profile is created for" + userId);
+            startActivity(new Intent(getApplicationContext(), DataEntryActivity.class));
+            finish();
         });
     }
 }
