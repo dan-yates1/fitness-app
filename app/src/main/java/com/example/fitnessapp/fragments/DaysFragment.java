@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import com.example.fitnessapp.models.Workout;
 
 public class DaysFragment extends Fragment implements View.OnClickListener {
     TextView mCounter;
+    Button mNextButton;
     ImageButton mAdd, mMinus;
     private int mCount;
     private Workout mWorkout;
@@ -38,12 +40,16 @@ public class DaysFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_days, container, false);
 
+        getWorkoutObj();
+
         mCounter = v.findViewById(R.id.counter);
         mAdd = v.findViewById(R.id.addButton);
         mMinus = v.findViewById(R.id.minusButton);
+        mNextButton = v.findViewById(R.id.nextButton);
 
         mAdd.setOnClickListener(this);
         mMinus.setOnClickListener(this);
+        mNextButton.setOnClickListener(this);
 
         return v;
     }
@@ -55,17 +61,22 @@ public class DaysFragment extends Fragment implements View.OnClickListener {
             case R.id.addButton:
                 if (mCount < 6) {
                     mCount += 1;
-                    mCounter.setText(mCount);
+                    mCounter.setText(String.valueOf(mCount));
                 } else {
-                    Toast.makeText(getActivity(), "Enter a number between 2 & 6", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Must be a number below 6", Toast.LENGTH_SHORT).show();
                 }
+                break;
             case R.id.minusButton:
                 if (mCount > 2) {
                     mCount -= 1;
-                    mCounter.setText(mCount);
+                    mCounter.setText(String.valueOf(mCount));
                 } else {
-                    Toast.makeText(getActivity(), "Enter a number between 2 & 6", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Must be a number above 2", Toast.LENGTH_SHORT).show();
                 }
+                break;
+            case R.id.nextButton:
+                mWorkout.setAvailability(mCount);
+                //startNextActivity();
         }
     }
 

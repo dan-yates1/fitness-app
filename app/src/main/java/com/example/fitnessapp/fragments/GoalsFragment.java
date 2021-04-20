@@ -73,12 +73,12 @@ public class GoalsFragment extends Fragment implements View.OnClickListener {
     public void startNextActivity() {
         // Passes workout object to next fragment
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        GoalsFragment goalsFragment = new GoalsFragment();
+        DaysFragment daysFragment = new DaysFragment();
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("workout", mWorkout);
-        goalsFragment.setArguments(bundle);
-        //ft.replace(R.id.mainLayout, goalsFragment);
+        daysFragment.setArguments(bundle);
+        ft.replace(R.id.mainLayout, daysFragment);
         ft.commit();
     }
 }
