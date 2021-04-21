@@ -83,12 +83,15 @@ public class ProfileActivity extends AppCompatActivity {
             switch (item.getItemId()){
                 case R.id.nav_home:
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    break;
                 case R.id.nav_exercises:
                     startActivity(new Intent(getApplicationContext(), ExercisesActivity.class));
+                    break;
                 case R.id.nav_profile:
-                    return true;
+                    break;
                 case R.id.nav_workout:
                     startActivity(new Intent(getApplicationContext(), WorkoutActivity.class));
+                    break;
             }
             return false;
         });

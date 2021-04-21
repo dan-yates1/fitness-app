@@ -99,7 +99,6 @@ public class RegisterActivity extends AppCompatActivity {
             if (checkCredentials()) {
                 User user = createUserObject();
                 addUserToFirebase(user);
-                finish();
             }
         });
     }
@@ -119,7 +118,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void addDataToDatabase(User user) {
-        DocumentReference docRef = fStore.collection("users").document(userId);
+        DocumentReference docRef = fStore
+                .collection("users").document(userId);
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("fName", user.getName());
         userMap.put("email", user.getEmail());

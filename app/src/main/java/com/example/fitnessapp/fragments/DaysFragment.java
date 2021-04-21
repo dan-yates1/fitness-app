@@ -76,7 +76,7 @@ public class DaysFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.nextButton:
                 mWorkout.setAvailability(mCount);
-                //startNextActivity();
+                startNextActivity();
         }
     }
 
@@ -89,12 +89,12 @@ public class DaysFragment extends Fragment implements View.OnClickListener {
     public void startNextActivity() {
         // Passes workout object to next fragment
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        GoalsFragment goalsFragment = new GoalsFragment();
+        ExperienceFragment experienceFragment = new ExperienceFragment();
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("workout", mWorkout);
-        goalsFragment.setArguments(bundle);
-        ft.replace(R.id.mainLayout, goalsFragment);
+        experienceFragment.setArguments(bundle);
+        ft.replace(R.id.mainLayout, experienceFragment);
         ft.commit();
     }
 }

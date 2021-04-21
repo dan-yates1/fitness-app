@@ -12,14 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessApp">
-        <activity android:name=".layouts.WorkoutActivity"></activity>
+        <activity android:name=".layouts.WorkoutDetailsActivity"></activity>
+        <activity android:name=".layouts.WorkoutActivity" />
         <activity android:name=".layouts.ProfileActivity" />
-        <activity android:name=".layouts.StartUpActivity" />
+        <activity android:name=".layouts.DataEntryActivity" />
         <activity android:name=".layouts.RegisterActivity" />
-        <activity android:name=".layouts.MainActivity" />
+        <activity android:name=".layouts.StartUpActivity" />
         <activity android:name=".layouts.LoginActivity" />
         <activity android:name=".layouts.ExercisesActivity" />
-        <activity android:name=".layouts.DataEntryActivity">
+        <activity android:name=".layouts.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

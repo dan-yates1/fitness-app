@@ -172,18 +172,20 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
 
     public void buildNavBar() {
         mBottomNav = findViewById(R.id.bottomNavBar);
-        mBottomNav.setSelectedItemId(R.id.nav_profile);
         mBottomNav.setSelectedItemId(R.id.nav_exercises);
         mBottomNav.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.nav_home:
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    break;
                 case R.id.nav_exercises:
-                    return true;
+                    break;
                 case R.id.nav_profile:
                     startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    break;
                 case R.id.nav_workout:
                     startActivity(new Intent(getApplicationContext(), WorkoutActivity.class));
+                    break;
             }
             return false;
         });
