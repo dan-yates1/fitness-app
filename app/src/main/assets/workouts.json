@@ -1,19 +1,65 @@
-[
-  {
-    "name": "Push",
-    "exercises": [
-      {
-        "name": "Bench Press",
-        "primary_muscles": ["Chest", "Triceps"],
-        "secondary_muscles": ["Abs"],
-        "equipment": ["Barbell"]
-      },
-      {
-        "name": "Military Press",
-        "primary_muscles": ["Shoulders"],
-        "secondary_muscles": ["Abs", "Back"],
-        "equipment": ["Barbell"]
-      }
-    ]
-  }
-]
+  [
+    {
+      "name": "Push",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscles": ["Chest", "Triceps"],
+          "secondary_muscles": ["Abs"],
+          "equipment": ["Barbell"],
+          "reps": 8,
+          "sets": 4
+        },
+        {
+          "name": "Military Press",
+          "primary_muscles": ["Shoulders"],
+          "secondary_muscles": ["Abs", "Back"],
+          "equipment": ["Barbell"],
+          "reps": 8,
+          "sets": 4
+        }
+      ]
+    },
+    {
+      "name": "Pull",
+      "exercises": [
+        {
+          "name": "Deadlift",
+          "primary_muscles": ["Back"],
+          "secondary_muscles": ["Abs"],
+          "equipment": ["Barbell"],
+          "reps": 8,
+          "sets": 4
+        },
+        {
+          "name": "Pull-ups",
+          "primary_muscles": ["Back"],
+          "secondary_muscles": ["Biceps"],
+          "equipment": ["Barbell"],
+          "reps": 8,
+          "sets": 4
+        }
+      ]
+    },
+    {
+      "name": "Legs",
+      "exercise": [
+        {
+          "name": "Squat",
+          "primary_muscles": ["Quads", "Hamstrings"],
+          "secondary_muscles": ["Abs"],
+          "equipment": ["Barbell"],
+          "reps": 8,
+          "sets": 4
+        },
+        {
+          "name": "Leg Curls",
+          "primary_muscles": ["Hamstrings"],
+          "secondary_muscles": [],
+          "equipment": ["Barbell"],
+          "reps": 8,
+          "sets": 4
+        }
+      ]
+    }
+  ]

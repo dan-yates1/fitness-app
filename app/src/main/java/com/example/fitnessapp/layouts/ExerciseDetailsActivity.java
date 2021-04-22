@@ -44,7 +44,7 @@ public class ExerciseDetailsActivity extends AppCompatActivity {
 
     private void updateInterface() {
         mNameText.setText(mExercise.getName());
-        //mDescriptionText.setText("");
+        mDescriptionText.setText(mExercise.getDescription());
         setMuscles();
     }
 

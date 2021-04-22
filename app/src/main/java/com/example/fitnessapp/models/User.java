@@ -1,16 +1,25 @@
 package com.example.fitnessapp.models;
 
+import java.util.ArrayList;
+
 public class User {
+    // Personal data
     private String mName;
     private String mEmail;
     private String mPassword;
     private Workout mWorkout;
+    // Workout generation data
+    private String mGender;
+    private ArrayList<String> mEquipment;
+    private int mAvailability;
+    private String mGoal;
+    private String mExperience;
 
     public User(String name, String email, String password) {
-        this.mName = name;
-        this.mEmail = email;
-        this.mPassword = password;
-        this.mWorkout = new Workout();
+        mName = name;
+        mEmail = email;
+        mPassword = password;
+        mWorkout = new Workout();
     }
 
     public String getName() {

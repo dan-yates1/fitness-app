@@ -10,29 +10,32 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@color/orange"
-        android:layout_margin="5dp">
+        android:layout_marginVertical="5dp">
 
         <TextView
             android:id="@+id/exerciseName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="BENCH PRESS"
             android:textSize="20sp"
             android:textColor="@color/white"
-            android:fontFamily="@font/roboto_bold"/>
+            android:fontFamily="@font/roboto_bold"
+            android:background="@color/dark_grey"/>
 
         <TextView
             android:id="@+id/muscleGroups"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/exerciseName"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="25dp"
             android:text="Chest | Triceps"
             android:textSize="18sp"
             android:textColor="@color/white"
-            android:fontFamily="@font/roboto_regular"/>
+            android:fontFamily="@font/roboto_regular"
+            android:background="@color/orange"/>
 
-</RelativeLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

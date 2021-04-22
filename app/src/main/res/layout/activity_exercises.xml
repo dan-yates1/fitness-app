@@ -7,16 +7,6 @@
     tools:context=".layouts.ExercisesActivity"
     android:background="@color/dark_grey">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bottomNavBar"
-        android:layout_below="@+id/searchEditText"
-        android:background="@color/dark_grey"
-        android:paddingHorizontal="30dp"
-        tools:listitem="@layout/item_exercise" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavBar"
         android:layout_width="match_parent"
@@ -26,18 +16,95 @@
         android:background="@color/orange"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
-        app:menu="@menu/nav"/>
+        app:menu="@menu/nav" />
 
-    <TextView
-        android:id="@+id/titleTextView"
+    <Button
+        android:id="@+id/bicepsBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:text="EXERCISES"
+        android:layout_below="@+id/shouldersBtn"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="20sp"
-        android:textColor="@color/white"/>
+        android:text="Biceps"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp" />
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/bicepsBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:alpha="0.75"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Exercise name"
+        android:paddingHorizontal="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/hamstringsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTextView"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/chestBtn"
+        android:layout_toRightOf="@+id/chestBtn"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Hams"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp" />
+
+    <Button
+        android:id="@+id/quadsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTextView"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/hamstringsBtn"
+        android:layout_toRightOf="@+id/hamstringsBtn"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Quads"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp" />
+
+    <Button
+        android:id="@+id/allBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chestBtn"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/backBtn"
+        android:layout_toRightOf="@+id/shouldersBtn"
+        android:fontFamily="@font/roboto_bold"
+        android:text="All"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="30dp" />
 
     <Button
         android:id="@+id/chestBtn"
@@ -52,41 +119,23 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
-        app:cornerRadius="30dp"/>
+        app:cornerRadius="30dp" />
 
     <Button
-        android:id="@+id/hamstringsBtn"
+        android:id="@+id/tricepsBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTextView"
-        android:layout_toEndOf="@+id/chestBtn"
-        android:layout_toRightOf="@+id/chestBtn"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_below="@+id/shouldersBtn"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/bicepsBtn"
         android:fontFamily="@font/roboto_bold"
-        android:text="Hams"
+        android:text="Triceps"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
         app:cornerRadius="30dp" />
-
-    <Button
-        android:id="@+id/quadsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTextView"
-        android:layout_toEndOf="@+id/hamstringsBtn"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Quads"
-        android:textAllCaps="true"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/orange"
-        app:cornerRadius="30dp"
-        android:layout_toRightOf="@+id/hamstringsBtn" />
 
     <Button
         android:id="@+id/shouldersBtn"
@@ -108,86 +157,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/chestBtn"
-        android:layout_toEndOf="@+id/shouldersBtn"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/shouldersBtn"
+        android:layout_toRightOf="@+id/shouldersBtn"
         android:fontFamily="@font/roboto_bold"
         android:text="Back"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
-        app:cornerRadius="30dp"
-        android:layout_toRightOf="@+id/shouldersBtn" />
+        app:cornerRadius="30dp" />
 
-    <Button
-        android:id="@+id/allBtn"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomNavBar"
+        android:layout_below="@+id/searchEditText"
+        android:background="@color/dark_grey"
+
+        tools:listitem="@layout/item_exercise" />
+
+    <TextView
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/chestBtn"
-        android:layout_toEndOf="@+id/backBtn"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="All"
-        android:textAllCaps="true"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/orange"
-        app:cornerRadius="30dp"
-        android:layout_toRightOf="@+id/shouldersBtn" />
-
-    <Button
-        android:id="@+id/bicepsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/shouldersBtn"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="25dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Biceps"
-        android:textAllCaps="true"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/orange"
-        app:cornerRadius="30dp"/>
-
-    <Button
-        android:id="@+id/tricepsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/shouldersBtn"
-        android:layout_toRightOf="@+id/bicepsBtn"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="25dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Triceps"
-        android:textAllCaps="true"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/orange"
-        app:cornerRadius="30dp"/>
-
-    <EditText
-        android:id="@+id/searchEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_below="@+id/bicepsBtn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:alpha="0.75"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:background="@drawable/edit_text_bg"
-        android:hint="Exercise name"
-        android:paddingHorizontal="10dp" />
+        android:text="EXERCISES"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
 
 </RelativeLayout>
