@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Exercise implements Serializable {
+    @SerializedName("name")
     private String mName;
     @SerializedName("primary_muscles")
     private ArrayList<String> mPrimaryMuscles;

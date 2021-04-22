@@ -15,15 +15,33 @@ import java.util.ArrayList;
 
 public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder> {
     private ArrayList<Exercise> mExerciseList;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
 
     public static class ExerciseViewHolder extends RecyclerView.ViewHolder {
         private final TextView mExerciseName;
         private final TextView mMuscleGroups;
 
-        public ExerciseViewHolder(@NonNull View itemView) {
+        public ExerciseViewHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
             mExerciseName = itemView.findViewById(R.id.exerciseName);
             mMuscleGroups = itemView.findViewById(R.id.muscleGroups);
+
+            itemView.setOnClickListener(v -> {
+                if (listener != null) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(position);
+                    }
+                }
+            });
         }
     }
 
@@ -35,14 +53,14 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     @Override
     public ExerciseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_exercise, parent, false);
-        ExerciseViewHolder evh = new ExerciseViewHolder(v);
+        ExerciseViewHolder evh = new ExerciseViewHolder(v, mListener);
         return evh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ExerciseViewHolder holder, int position) {
         Exercise currentItem = mExerciseList.get(position);
-        holder.mExerciseName.setText(currentItem.getmName().toUpperCase());
+        holder.mExerciseName.setText(currentItem.getName().toUpperCase());
         // Display all muscles on CardView
         ArrayList<String> allMuscles = currentItem.getAllMuscles();
         String musclesStr = "";

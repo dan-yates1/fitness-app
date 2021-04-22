@@ -68,7 +68,7 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
     private void filterByName(String text) {
         ArrayList<Exercise> filteredList = new ArrayList<>();
         for (Exercise item : mExerciseList) {
-            if (item.getmName().toLowerCase().contains(text.toLowerCase())) {
+            if (item.getName().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }
@@ -138,6 +138,9 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
         mAdapter = new ExerciseAdapter(mExerciseList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnItemClickListener(position -> startActivity(new Intent(getApplicationContext(), ExerciseDetailsActivity.class)
+                .putExtra("exercise", mExerciseList.get(position))));
     }
 
     @Override
