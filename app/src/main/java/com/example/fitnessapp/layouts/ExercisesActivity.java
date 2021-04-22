@@ -68,7 +68,7 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
     private void filterByName(String text) {
         ArrayList<Exercise> filteredList = new ArrayList<>();
         for (Exercise item : mExerciseList) {
-            if (item.getName().toLowerCase().contains(text.toLowerCase())) {
+            if (item.getmName().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }

@@ -3,8 +3,6 @@ package com.example.fitnessapp.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +12,6 @@ import com.example.fitnessapp.R;
 import com.example.fitnessapp.models.Exercise;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder> {
     private ArrayList<Exercise> mExerciseList;
@@ -45,7 +42,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     @Override
     public void onBindViewHolder(@NonNull ExerciseViewHolder holder, int position) {
         Exercise currentItem = mExerciseList.get(position);
-        holder.mExerciseName.setText(currentItem.getName().toUpperCase());
+        holder.mExerciseName.setText(currentItem.getmName().toUpperCase());
         // Display all muscles on CardView
         ArrayList<String> allMuscles = currentItem.getAllMuscles();
         String musclesStr = "";

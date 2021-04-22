@@ -6,46 +6,54 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Exercise implements Serializable {
-    private final String name;
+    private String mName;
     @SerializedName("primary_muscles")
-    private final ArrayList<String> primaryMuscles;
+    private ArrayList<String> mPrimaryMuscles;
     @SerializedName("secondary_muscles")
-    private final ArrayList<String> secondaryMuscles;
-    private final ArrayList<String> equipment;
+    private ArrayList<String> mSecondaryMuscles;
+    @SerializedName("equipment")
+    private ArrayList<String> mEquipment;
+    @SerializedName("description")
+    private String mDescription;
 
     public Exercise(String name, ArrayList<String> primaryMuscles, ArrayList<String> secondaryMuscles,
-                    ArrayList<String> allMuscles, ArrayList<String> equipment) {
-        this.name = name;
-        this.primaryMuscles = primaryMuscles;
-        this.secondaryMuscles = secondaryMuscles;
-        this.equipment = equipment;
+                    ArrayList<String> equipment, String description) {
+        this.mName = name;
+        this.mPrimaryMuscles = primaryMuscles;
+        mSecondaryMuscles = secondaryMuscles;
+        mEquipment = equipment;
+        mDescription = description;
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public ArrayList<String> getPrimaryMuscles() {
-        return primaryMuscles;
+        return mPrimaryMuscles;
     }
 
     public ArrayList<String> getSecondaryMuscles() {
-        return secondaryMuscles;
+        return mSecondaryMuscles;
     }
 
     public ArrayList<String> getAllMuscles() {
         // Create new array of all muscles
         ArrayList<String> allMuscles = new ArrayList<>();
-        for (int i = 0; i < primaryMuscles.size(); i++) {
-            allMuscles.add(primaryMuscles.get(i));
+        for (int i = 0; i < mPrimaryMuscles.size(); i++) {
+            allMuscles.add(mPrimaryMuscles.get(i));
         }
-        for (int i = 0; i < secondaryMuscles.size(); i++) {
-            allMuscles.add(secondaryMuscles.get(i));
+        for (int i = 0; i < mSecondaryMuscles.size(); i++) {
+            allMuscles.add(mSecondaryMuscles.get(i));
         }
         return allMuscles;
     }
 
     public ArrayList<String> getEquipment() {
-        return equipment;
+        return mEquipment;
+    }
+
+    public String getDescription() {
+        return mDescription;
     }
 }
