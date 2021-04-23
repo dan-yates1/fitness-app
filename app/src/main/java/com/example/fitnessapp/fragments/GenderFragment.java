@@ -35,20 +35,14 @@ public class GenderFragment extends Fragment {
 
         mMale = v.findViewById(R.id.maleButton);
         mFemale = v.findViewById(R.id.femaleButton);
-        mMale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mWorkout.setGender("Male");
-                startNextActivity();
-            }
+        mMale.setOnClickListener(v1 -> {
+            mWorkout.setGender("Male");
+            startNextActivity();
         });
 
-        mFemale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mWorkout.setGender("Female");
-                startNextActivity();
-            }
+        mFemale.setOnClickListener(v12 -> {
+            mWorkout.setGender("Female");
+            startNextActivity();
         });
 
         return v;

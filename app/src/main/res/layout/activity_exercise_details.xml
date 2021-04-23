@@ -43,7 +43,7 @@
         android:layout_below="@id/exerciseName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Target Muscles: Chest, Shoulders\nTriceps"
+        android:text="Target Muscles: Chest, Shoulders, Triceps"
         android:textAlignment="center"
         android:fontFamily="@font/roboto_regular"
         android:textSize="20sp"
@@ -60,7 +60,7 @@
         android:text="The bench press is an upper-body weight training exercise in which the trainee presses a weight upwards while lying on a weight training bench. The exercise uses the pectoralis major, the anterior deltoids, and the triceps, among other stabilizing muscles (Wikipedia, 2021)."
         android:textAlignment="center"
         android:fontFamily="@font/roboto_regular"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/white"
         android:gravity="center_horizontal" />
 
