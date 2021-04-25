@@ -1,6 +1,9 @@
+
+
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+    id 'com.chaquo.python'
 }
 
 android {
@@ -16,6 +19,23 @@ android {
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters "x86", "x86_64"
+        }
+        python {
+            buildPython "C:/Users/Dan/AppData/Local/Programs/Python/Python38-32/python.exe"
+            pip {
+                install "pandas"
+                install "sklearn"
+            }
+        }
+
+        sourceSets {
+            main {
+                python.srcDir "src/main/python"
+            }
+        }
     }
 
     buildTypes {
@@ -46,4 +66,5 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'gr.pantrif:easy-android-splash-screen:0.0.1'
 }

@@ -57,4 +57,14 @@ public class Workout implements Serializable {
     public void setExperience(String experience) {
         this.mExperience = experience;
     }
+
+    public int getRoutine() {
+        int routine = 0;
+        return routine;
+    }
+
+    public Routine generateRoutine() {
+        Routine routine = new Routine("test");
+        return routine;
+    }
 }
