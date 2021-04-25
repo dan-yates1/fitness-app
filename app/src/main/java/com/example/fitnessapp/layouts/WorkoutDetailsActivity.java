@@ -24,7 +24,7 @@ public class WorkoutDetailsActivity extends AppCompatActivity {
     private DayAdapter mAdapter;
     private Day mDay;
     private ArrayList<Exercise> mExercises;
-    private TextView mWorkoutTitle, mTargetMuscles, mExerciseCounter;
+    private TextView mWorkoutTitle, mTargetMuscles, mExerciseCounter, mRepsSets;
     private int mCompletedExercises;
 
     @Override
@@ -50,9 +50,18 @@ public class WorkoutDetailsActivity extends AppCompatActivity {
     private void buildRecyclerView () {
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new DayAdapter(mExercises);
+        mAdapter = new DayAdapter(mExercises, mDay);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnItemClickListener(new DayAdapter.OnItemClickListener() {
+            @Override
+            public void onHelpClick(int position) {
+                startActivity(new Intent(getApplicationContext(),
+                        ExerciseDetailsActivity.class)
+                        .putExtra("exercise", mExercises.get(position)));
+            }
+        });
     }
 
     private void setUpInterface () {
@@ -68,7 +77,7 @@ public class WorkoutDetailsActivity extends AppCompatActivity {
 
         ArrayList<String> muscles = getAllMuscles();
         if (muscles.size() > 0) {
-            mTargetMuscles.setText(muscles.get(0));
+            mTargetMuscles.setText("Target muscles: " + muscles.get(0));
         }
         if (muscles.size() > 1) {
             for (int i = 1; i < muscles.size(); i++) {

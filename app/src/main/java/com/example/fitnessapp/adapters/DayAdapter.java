@@ -11,16 +11,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitnessapp.R;
+import com.example.fitnessapp.models.Day;
 import com.example.fitnessapp.models.Exercise;
 
 import java.util.ArrayList;
 
 public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayViewHolder> {
     private ArrayList<Exercise> mExerciseList;
+    private Day mDay;
     private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
         void onHelpClick(int position);
+    }
+
+    public void setOnItemClickListener(DayAdapter.OnItemClickListener listener) {
+        mListener = listener;
     }
 
     public static class DayViewHolder extends RecyclerView.ViewHolder {
@@ -31,7 +37,7 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayViewHolder> {
         public DayViewHolder(@NonNull View itemView, DayAdapter.OnItemClickListener listener) {
             super(itemView);
             mSetName = itemView.findViewById(R.id.setName);
-            mCheckBox = itemView.findViewById(R.id.checkBox);
+            mCheckBox = itemView.findViewById(R.id.checkBox2);
             mHelpButton = itemView.findViewById(R.id.helpButton);
 
             mHelpButton.setOnClickListener(v -> {
@@ -45,8 +51,9 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayViewHolder> {
         }
     }
 
-    public DayAdapter(ArrayList<Exercise> exerciseList) {
-        mExerciseList = exerciseList;
+    public DayAdapter(ArrayList<Exercise> exerciseList, Day day) {
+        mDay = day;
+        mExerciseList = day.getExercises();
     }
 
     @NonNull
@@ -61,6 +68,7 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayViewHolder> {
     public void onBindViewHolder(@NonNull DayAdapter.DayViewHolder holder, int position) {
         Exercise currentItem = mExerciseList.get(position);
         holder.mSetName.setText(currentItem.getName());
+        holder.mCheckBox.setText(mDay.getSets() + " X " + mDay.getReps());
     }
 
     @Override

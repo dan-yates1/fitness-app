@@ -26,5 +26,82 @@
     "secondary_muscles": ["Quads", "Abs"],
     "equipment": ["Barbell"],
     "description": "The deadlift is a weight training exercise in which a loaded barbell or bar is lifted off the ground to the level of the hips, torso perpendicular to the floor, before being placed back on the ground. It is one of the three powerlifting exercises, along with the squat and bench press (Wikipedia, 2021)."
+  },
+  {
+    "name": "Leg Extensions",
+    "primary_muscles": ["Quads"],
+    "secondary_muscles": [],
+    "equipment": ["Machines"],
+    "description": "The leg extension is a resistance weight training exercise that targets the quadriceps muscle in the legs. The exercise is done using a machine called the Leg Extension Machine. There are various manufacturers of these machines and each one is slightly different. Most gym and weight rooms will have the machine in their facility. The leg extension is an isolated exercise targeting one specific muscle group, the quadriceps (Wikipedia, 2021)."
+  },
+  {
+    "name": "Leg Curl",
+    "primary_muscles": ["Hamstrings"],
+    "secondary_muscles": [],
+    "equipment": ["Machines"],
+    "description": "The leg curl, also known as the hamstring curl, is an isolation exercise that targets the hamstring muscles. The exercise involves flexing the lower leg against resistance towards the buttocks. There are three types of leg curls. There are seated leg curls, laying leg curls, and standing leg curls (Wikipedia, 2021)."
+  },
+  {
+    "name": "Push-Ups",
+    "primary_muscles": ["Chest"],
+    "secondary_muscles": ["Triceps"],
+    "equipment": [],
+    "description": "A push-up (sometimes called a press-up in British English) is a common calisthenics exercise beginning from the prone position. By raising and lowering the body using the arms, push-ups exercise the pectoral muscles, triceps, and anterior deltoids, with ancillary benefits to the rest of the deltoids, serratus anterior, coracobrachialis and the midsection as a whole. Push-ups are a basic exercise used in civilian athletic training or physical education and commonly in military physical training (Wikipedia, 2021)."
+  },
+  {
+    "name": "Sit-Ups",
+    "primary_muscles": ["Abs"],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": "The sit-up (or curl-up) is an abdominal endurance training exercise to strengthen, tighten and tone the abdominal muscles. It is similar to a crunch (crunches target the rectus abdominis and also work the biceps and external and internal obliques), but sit-ups have a fuller range of motion and condition additional muscles (Wikipedia, 2021)."
+  },
+  {
+    "name": "Barbell Bicep Curl",
+    "primary_muscles": ["Biceps"],
+    "secondary_muscles": [],
+    "equipment": ["Barbell", "Dumbbell"],
+    "description": "Biceps curl is a general term for a series of strength exercises that involve brachioradialis, front deltoid and the main target on biceps brachii.[1] Includes variations using barbell, dumbbell and resistance band, etc. The common point amongst them is the trainee lifting a certain amount of weight to contracting the biceps brachii, and tuck in their arms to the torso during the concentric phase (Wikipedia, 2021)."
+  },
+  {
+    "name": "Triceps Extensions",
+    "primary_muscles": [],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": "Triceps extensions are one of the most stimulating exercises to the entire triceps muscle group in the upper arm. It works the triceps from the elbow all the way to the latissimus dorsi. Due to its full use of the Triceps muscle group, the lying triceps extensions are used by many as part of their training regimen (Wikipedia, 2021)."
+  },
+  {
+    "name": "",
+    "primary_muscles": [],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": " (Wikipedia, 2021)."
+  },
+  {
+    "name": "Lunges",
+    "primary_muscles": ["Glutes", "Hamstrings"],
+    "secondary_muscles": ["Quads"],
+    "equipment": ["Barbell", "Dumbbells"],
+    "description": "A lunge can refer to any position of the human body where one leg is positioned forward with knee bent and foot flat on the ground while the other leg is positioned behind. It is used by athletes in cross-training for sports, by weight-trainers as a fitness exercise, and by practitioners of yoga as part of an asana regimen (Wikipedia, 2021)."
+  },
+  {
+    "name": "Bent-Over Row",
+    "primary_muscles": ["Back"],
+    "secondary_muscles": ["Biceps"],
+    "equipment": ["Barbell"],
+    "description": "A bent-over row (or barbell row) is a weight training exercise that targets a variety of back muscles. Which ones are targeted varies on form. The bent over row is often used for both bodybuilding and powerlifting. It is a good exercise for increasing strength and size (Wikipedia, 2021)."
+  },
+  {
+    "name": "Pike Push-Ups",
+    "primary_muscles": ["Shoulders"],
+    "secondary_muscles": ["Chest", "Triceps"],
+    "equipment": ["A pike push-up is a variation of a push-up a which the lower body is positioned at a decline to activate the shoulders more than the chest, the hand position is the same as a regular push-up but can be varied to target different ares of the shoulders."],
+    "description": " (Wikipedia, 2021)."
+  },
+  {
+    "name": "Stiff-Legged Deadlift",
+    "primary_muscles": ["Hamstrings"],
+    "secondary_muscles": ["Back"],
+    "equipment": ["Barbell"],
+    "description": "A variation of the deadlift where the grounded-bar start and end positions are modified to make the legs as straight as possible without rounding the back. This exercises aims at targeting the hamstrings instead of the lower back (Wikipedia, 2021)."
   }
 ]
