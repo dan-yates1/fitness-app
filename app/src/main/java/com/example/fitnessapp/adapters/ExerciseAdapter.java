@@ -46,7 +46,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     }
 
     public ExerciseAdapter(ArrayList<Exercise> exerciseList) {
-        this.mExerciseList = exerciseList;
+        mExerciseList = exerciseList;
     }
 
     @NonNull

@@ -47,7 +47,8 @@ public class WorkoutActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.setOnItemClickListener(position -> startActivity(new Intent(getApplicationContext(), WorkoutDetailsActivity.class)
+        mAdapter.setOnItemClickListener(position -> startActivity(new Intent(getApplicationContext(),
+                WorkoutDetailsActivity.class)
                 .putExtra("routine", mRoutineList.get(position))));
     }
 
