@@ -13,7 +13,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationMenu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    RecyclerView mRecyclerView;
     BottomNavigationView mBottomNav;
 
     @Override
@@ -24,23 +23,20 @@ public class MainActivity extends AppCompatActivity {
         buildNavBar();
     }
 
-    public void buildRecyclerView() {
-        mRecyclerView = findViewById(R.id.recyclerView);
-    }
-
     public void buildNavBar() {
         mBottomNav = findViewById(R.id.bottomNavBar);
         mBottomNav.setSelectedItemId(R.id.nav_home);
         mBottomNav.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
-                case R.id.nav_home:
-                    return true;
                 case R.id.nav_exercises:
                     startActivity(new Intent(getApplicationContext(), ExercisesActivity.class));
+                    break;
                 case R.id.nav_profile:
                     startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    break;
                 case R.id.nav_workout:
                     startActivity(new Intent(getApplicationContext(), WorkoutActivity.class));
+                    break;
             }
             return false;
         });

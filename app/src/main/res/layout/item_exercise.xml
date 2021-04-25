@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@android:color/transparent"
-    app:cardElevation="0dp"
-    app:cardCornerRadius="10dp" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark_grey">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/exerciseName"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="5dp">
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:text="BENCH PRESS"
+        android:textAlignment="center"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal" />
 
-        <TextView
-            android:id="@+id/exerciseName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="BENCH PRESS"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/roboto_bold"
-            android:background="@color/dark_grey"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/exerciseName"
+        app:cardBackgroundColor="@color/orange">
 
         <TextView
             android:id="@+id/muscleGroups"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/exerciseName"
-            android:paddingHorizontal="5dp"
-            android:paddingVertical="25dp"
-            android:text="Chest | Triceps"
-            android:textSize="18sp"
-            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/roboto_regular"
-            android:background="@color/orange"/>
+            android:gravity="center_horizontal"
+            android:text="Chest, Triceps, Shoulders"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
-    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

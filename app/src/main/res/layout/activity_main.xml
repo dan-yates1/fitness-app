@@ -22,15 +22,8 @@
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:src="@drawable/ic_fitness_bot"
         android:layout_centerHorizontal="true" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/logoImageView"
-        android:padding="10dp"
-        tools:listitem="@layout/item_workout"/>
 
 </RelativeLayout>

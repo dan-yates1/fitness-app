@@ -1,9 +1,26 @@
 package com.example.fitnessapp.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Routine implements Serializable {
-    private String mName;
-    private ArrayList<Exercise> mExercises;
+    @SerializedName("name")
+    private String mRoutineName;
+    @SerializedName("routine")
+    private ArrayList<Day> mDays;
+
+    public Routine(String mRoutineName, ArrayList<Day> mDays) {
+        this.mRoutineName = mRoutineName;
+        this.mDays = mDays;
+    }
+
+    public String getRoutineName() {
+        return mRoutineName;
+    }
+
+    public ArrayList<Day> getDays() {
+        return mDays;
+    }
 }

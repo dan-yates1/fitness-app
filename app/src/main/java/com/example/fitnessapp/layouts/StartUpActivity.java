@@ -1,7 +1,6 @@
 package com.example.fitnessapp.layouts;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.fitnessapp.R;
-import com.example.fitnessapp.adapters.ViewPagerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class StartUpActivity extends AppCompatActivity implements View.OnClickListener {

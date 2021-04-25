@@ -176,7 +176,7 @@
         android:layout_above="@+id/bottomNavBar"
         android:layout_below="@+id/searchEditText"
         android:background="@color/dark_grey"
-
+        android:paddingHorizontal="25dp"
         tools:listitem="@layout/item_exercise" />
 
     <TextView

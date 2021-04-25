@@ -18,6 +18,18 @@
         android:textColor="@color/white"
         android:gravity="center_horizontal" />
 
+    <ImageButton
+        android:id="@+id/helpButton"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/setName"
+        android:layout_alignBottom="@+id/setName"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/setName"
+        android:layout_toRightOf="@+id/setName"
+        android:background="@null"
+        android:src="@drawable/ic_help" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="75dp"

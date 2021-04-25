@@ -1,36 +1,127 @@
 {
-  "routines": [
+  "name": "PPL",
+  "routine": [
     {
-      "name": "PPL",
-      "routine": [
+      "name": "Push",
+      "muscles": [
+        "Chest",
+        "Shoulders",
+        "Triceps"
+      ],
+      "exercises": [
         {
-          "name": "Push",
-          "muscles": ["Chest", "Shoulders", "Triceps"],
-          "exercises": [],
-          "reps": 0,
-          "sets": 0
+          "name": "Bench Press",
+          "primary_muscles": [
+            "Chest",
+            "Triceps"
+          ],
+          "secondary_muscles": [
+            "Abs"
+          ],
+          "equipment": [
+            "Barbell"
+          ],
+          "description": "The bench press is an upper-body weight training exercise in which the trainee presses a weight upwards while lying on a weight training bench. The exercise uses the pectoralis major, the anterior deltoids, and the triceps, among other stabilizing muscles (Wikipedia, 2021)."
         },
         {
-          "name": "Pull",
-          "muscles": ["Back", "Biceps"],
-          "exercises": [],
-          "reps": 0,
-          "sets": 0
-        },
-        {
-          "name": "Legs",
-          "muscles": ["Quads", "Hamstrings", "Glutes"],
-          "exercises": [],
-          "reps": 0,
-          "sets": 0
+          "name": "Squat",
+          "primary_muscles": [
+            "Quads",
+            "Hamstrings",
+            "Glutes"
+          ],
+          "secondary_muscles": [
+            "Abs"
+          ],
+          "equipment": [
+            "Barbell"
+          ],
+          "description": "A squat is a strength exercise in which the trainee lowers their hips from a standing position and then stands back up. During the descent of a squat, the hip and knee joints flex while the ankle joint dorsiflexes; conversely the hip and knee joints extend and the ankle joint plantarflexes when standing up (Wikipedia, 2021)."
         }
-      ]
+      ],
+      "reps": 0,
+      "sets": 0
     },
     {
-      "name": "5-Day Split",
-      "routine": [
-
-      ]
+      "name": "Pull",
+      "muscles": [
+        "Back",
+        "Biceps"
+      ],
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscles": [
+            "Chest",
+            "Triceps"
+          ],
+          "secondary_muscles": [
+            "Abs"
+          ],
+          "equipment": [
+            "Barbell"
+          ],
+          "description": "The bench press is an upper-body weight training exercise in which the trainee presses a weight upwards while lying on a weight training bench. The exercise uses the pectoralis major, the anterior deltoids, and the triceps, among other stabilizing muscles (Wikipedia, 2021)."
+        },
+        {
+          "name": "Squat",
+          "primary_muscles": [
+            "Quads",
+            "Hamstrings",
+            "Glutes"
+          ],
+          "secondary_muscles": [
+            "Abs"
+          ],
+          "equipment": [
+            "Barbell"
+          ],
+          "description": "A squat is a strength exercise in which the trainee lowers their hips from a standing position and then stands back up. During the descent of a squat, the hip and knee joints flex while the ankle joint dorsiflexes; conversely the hip and knee joints extend and the ankle joint plantarflexes when standing up (Wikipedia, 2021)."
+        }
+      ],
+      "reps": 0,
+      "sets": 0
+    },
+    {
+      "name": "Legs",
+      "muscles": [
+        "Quads",
+        "Hamstrings",
+        "Glutes"
+      ],
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "primary_muscles": [
+            "Chest",
+            "Triceps"
+          ],
+          "secondary_muscles": [
+            "Abs"
+          ],
+          "equipment": [
+            "Barbell"
+          ],
+          "description": "The bench press is an upper-body weight training exercise in which the trainee presses a weight upwards while lying on a weight training bench. The exercise uses the pectoralis major, the anterior deltoids, and the triceps, among other stabilizing muscles (Wikipedia, 2021)."
+        },
+        {
+          "name": "Squat",
+          "primary_muscles": [
+            "Quads",
+            "Hamstrings",
+            "Glutes"
+          ],
+          "secondary_muscles": [
+            "Abs"
+          ],
+          "equipment": [
+            "Barbell"
+          ],
+          "description": "A squat is a strength exercise in which the trainee lowers their hips from a standing position and then stands back up. During the descent of a squat, the hip and knee joints flex while the ankle joint dorsiflexes; conversely the hip and knee joints extend and the ankle joint plantarflexes when standing up (Wikipedia, 2021)."
+        }
+      ],
+      "reps": 0,
+      "sets": 0
     }
   ]
 }

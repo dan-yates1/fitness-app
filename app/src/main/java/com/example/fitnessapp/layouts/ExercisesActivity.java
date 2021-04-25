@@ -33,7 +33,7 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
     private Button mBicepsBtn, mTricepsBtn, mChestBtn, mQuadsBtn, mShouldersBtn, mBackBtn, mAllBtn, mHamsBtn;
     private EditText mSearchBar;
     private ArrayList<Exercise> mExerciseList;
-    BottomNavigationView mBottomNav;
+    private BottomNavigationView mBottomNav;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
