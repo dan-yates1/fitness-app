@@ -65,5 +65,30 @@ public class WorkoutDetailsActivity extends AppCompatActivity {
         mBackButton.setOnClickListener(v -> finish());
         mWorkoutTitle.setText(mDay.getName());
         mExerciseCounter.setText(mCompletedExercises + "/" + mDay.getExercises().size());
+
+        ArrayList<String> muscles = getAllMuscles();
+        if (muscles.size() > 0) {
+            mTargetMuscles.setText(muscles.get(0));
+        }
+        if (muscles.size() > 1) {
+            for (int i = 1; i < muscles.size(); i++) {
+                mTargetMuscles.append(", " + muscles.get(i));
+            }
+        }
+    }
+
+    private ArrayList<String> getAllMuscles() {
+        // Gets all of the muscles targeted in the workout
+        ArrayList<String> targetMuscles = new ArrayList<>();
+        for (int i = 0; i < mDay.getExercises().size(); i++) {
+            Exercise exercise = mDay.getExercises().get(i);
+            for (int j = 0; j < exercise.getAllMuscles().size(); j++) {
+                String muscle = exercise.getAllMuscles().get(j);
+                if (!targetMuscles.contains(muscle)) {
+                    targetMuscles.add(muscle);
+                }
+            }
+        }
+        return targetMuscles;
     }
 }

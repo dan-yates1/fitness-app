@@ -67,7 +67,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
         if (allMuscles.size() > 1) {
             musclesStr = allMuscles.get(0);
             for (int i = 1; i < allMuscles.size(); i++) {
-                musclesStr += (" | " + allMuscles.get(i));
+                musclesStr += (", " + allMuscles.get(i));
             }
         } else if (allMuscles.size() == 1) {
             musclesStr = allMuscles.get(0);
