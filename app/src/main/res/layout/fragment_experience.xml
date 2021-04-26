@@ -1,74 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.ExperienceFragment"
-    android:background="@color/dark_grey">
+    android:background="@color/dark_grey"
+    tools:context=".fragments.ExperienceFragment">
 
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg_img"
         android:alpha="0.05"
-        android:scaleType="center"/>
+        android:scaleType="center"
+        android:src="@drawable/bg_img" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:text="WHAT IS YOUR LEVEL OF\nEXPERIENCE AT THE GYM?"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:text="WHAT IS YOUR LEVEL OF\nEXPERIENCE AT THE GYM?"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:gravity="center_horizontal" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/beginnerButton"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
         android:fontFamily="@font/roboto_regular"
         android:text="Beginner"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
-        app:cornerRadius="30dp" />
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/intermediateButton"
+        app:layout_constraintEnd_toEndOf="@+id/intermediateButton"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <Button
         android:id="@+id/intermediateButton"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/beginnerButton"
         android:fontFamily="@font/roboto_regular"
         android:text="Intermediate"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
-        app:cornerRadius="30dp" />
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/experiencedButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/beginnerButton" />
 
     <Button
         android:id="@+id/experiencedButton"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/intermediateButton"
         android:fontFamily="@font/roboto_regular"
         android:text="Experienced"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
-        app:cornerRadius="30dp" />
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/intermediateButton"
+        app:layout_constraintTop_toBottomOf="@+id/intermediateButton" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

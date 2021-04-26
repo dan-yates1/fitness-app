@@ -3,6 +3,8 @@
     package="com.example.fitnessapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -19,11 +21,11 @@
         <activity android:name=".layouts.ExercisesActivity" />
         <activity android:name=".layouts.ProfileActivity" />
         <activity android:name=".layouts.DataEntryActivity" />
-        <activity android:name=".layouts.RegisterActivity" />
+        <activity android:name=".layouts.MainActivity" />
         <activity android:name=".layouts.StartUpActivity" />
         <activity android:name=".layouts.LoginActivity" />
-        <activity android:name=".layouts.MainActivity" />
-        <activity android:name=".layouts.LoadingScreenActivity">
+        <activity android:name=".layouts.LoadingScreenActivity" />
+        <activity android:name=".layouts.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -17,6 +17,7 @@ import android.widget.EditText;
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.adapters.ExerciseAdapter;
 import com.example.fitnessapp.models.Exercise;
+import com.example.fitnessapp.util.JsonHandler;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -24,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
@@ -35,7 +37,6 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
     private ArrayList<Exercise> mExerciseList;
     private BottomNavigationView mBottomNav;
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,31 +106,9 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
         mAllBtn.setOnClickListener(this);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void buildExerciseList() {
-        // Parse list of exercises from JSON file located in assets folder
-        mExerciseList = new ArrayList<>();
-        Gson gson = new Gson();
-        Type exerciseListType = new TypeToken<ArrayList<Exercise>>(){}.getType();
-        mExerciseList = gson.fromJson(loadJSONFromAsset("exercises.json"), exerciseListType);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public String loadJSONFromAsset(String fileName) {
-        // Read JSON file into string
-        String json;
-        try {
-            InputStream is = getApplicationContext().getAssets().open(fileName);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, StandardCharsets.UTF_8);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
+        JsonHandler jsonHandler = new JsonHandler();
+        mExerciseList = jsonHandler.getAllExercises(getApplicationContext());
     }
 
     private void buildRecyclerView() {

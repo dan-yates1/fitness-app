@@ -28,6 +28,11 @@ def get_group(gender, experience, goal):
 
     predict = kmeans.predict(user_df)
 
-    return predict
+    return predict.item(0)
 
-print(get_group("Female", "Begginer", "Fitness"))
+def encode_df(df):
+     encoded_vals = {"gender": {"Male": 1, "Female": 0},
+                    "experience": {"Begginer": 0, "Intermediate": 1, "Experienced": 2},
+                    "goal": {"Weight-loss": 0, "Size": 1, "Strength": 2, "Fitness": 3}}
+    df = df.replace(cleanup_nums)
+    return df

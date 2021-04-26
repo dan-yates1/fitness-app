@@ -28,4 +28,8 @@ public class Routine implements Serializable {
     public ArrayList<Day> getDays() {
         return mDays;
     }
+
+    public void setDays(ArrayList<Day> days) {
+        this.mDays = days;
+    }
 }

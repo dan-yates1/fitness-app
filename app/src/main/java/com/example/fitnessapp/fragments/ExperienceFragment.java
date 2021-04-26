@@ -14,10 +14,14 @@ import android.widget.Button;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.layouts.DataEntryActivity;
+import com.example.fitnessapp.layouts.ExerciseDetailsActivity;
+import com.example.fitnessapp.layouts.LoadingScreenActivity;
+import com.example.fitnessapp.layouts.MainActivity;
 import com.example.fitnessapp.models.Workout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,15 +72,14 @@ public class ExperienceFragment extends Fragment implements View.OnClickListener
     }
 
     public void startNextActivity() {
-        // Passes workout object to next fragment
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        DaysFragment daysFragment = new DaysFragment();
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        intent.putExtra("workout", mWorkout);
+        startActivity(intent);
+    }
 
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("workout", mWorkout);
-        daysFragment.setArguments(bundle);
-        ft.replace(R.id.mainLayout, daysFragment);
-        ft.commit();
+    public String workoutToJson(Workout workout) {
+        Gson gson = new Gson();
+        return gson.toJson(workout);
     }
 
     public void addWorkoutToDb() {
@@ -85,16 +88,10 @@ public class ExperienceFragment extends Fragment implements View.OnClickListener
         fAuth = FirebaseAuth.getInstance();
         userId = fAuth.getCurrentUser().getUid();
         DocumentReference docRef = fStore
-                .collection("users").document(userId)
-                .collection("workout").document(userId);
+                .collection("users").document(userId);
         // Populate hash map with data
         Map<String, Object> workoutMap = new HashMap<>();
-        workoutMap.put("gender", mWorkout.getGender());
-        Object[] array = mWorkout.getEquipment().toArray();
-        workoutMap.put("equipment", Arrays.asList(array));
-        workoutMap.put("goal", mWorkout.getGoal());
-        workoutMap.put("experience", mWorkout.getExperience());
-        workoutMap.put("days", mWorkout.getAvailability());
+        workoutMap.put("workoutJson", workoutToJson(mWorkout));
         docRef.set(workoutMap).addOnSuccessListener(aVoid -> {
             Log.d(TAG, "onSuccess: Workout is created for" + userId);
         });
@@ -116,6 +113,6 @@ public class ExperienceFragment extends Fragment implements View.OnClickListener
                 addWorkoutToDb();
                 break;
         }
-        //startNextActivity();
+        startNextActivity();
     }
 }

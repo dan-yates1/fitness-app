@@ -1,23 +1,37 @@
-[
-  {
-    "name": "Push",
-    "muscles": ["Chest", "Shoulders", "Triceps"],
-    "exercises": [],
-    "reps": 0,
-    "sets": 0
-  },
-  {
-  "name": "Pull",
-  "muscles": ["Back", "Biceps"],
-  "exercises": [],
-  "reps": 0,
-  "sets": 0
-  },
-  {
-    "name": "Legs",
-    "muscles": ["Quads", "Hamstrings", "Glutes"],
-    "exercises": [],
-    "reps": 0,
-    "sets": 0
-  }
-]
+{
+  "name": "PPL",
+  "routine": [
+    {
+      "name": "Push",
+      "muscles": [
+        "Chest",
+        "Shoulders",
+        "Triceps"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    },
+    {
+      "name": "Pull",
+      "muscles": [
+        "Back",
+        "Biceps"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    },
+    {
+      "name": "Legs",
+      "muscles": [
+        "Quads",
+        "Hamstrings",
+        "Glutes"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    }
+  ]
+}

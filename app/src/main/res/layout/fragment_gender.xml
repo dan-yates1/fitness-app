@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.GenderFragment"
-    android:background="@color/dark_grey">
+    android:background="@color/dark_grey"
+    tools:context=".fragments.GenderFragment">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg_img"
         android:alpha="0.05"
-        android:scaleType="center"/>
+        android:scaleType="center"
+        android:src="@drawable/bg_img" />
 
     <TextView
         android:id="@+id/genderTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:text="WHAT GENDER DO YOU\nIDENTIFY AS?"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:text="WHAT GENDER DO YOU\nIDENTIFY AS?"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:gravity="center_horizontal" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/maleButton"
         android:layout_width="125dp"
         android:layout_height="125dp"
-        android:layout_below="@+id/genderTitle"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="200dp"
-        android:layout_marginRight="50dp"
-        android:padding="10dp"
         android:background="@drawable/round_button"
+        android:padding="10dp"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_male"
-        android:scaleType="fitXY"/>
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/femaleButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <ImageButton
         android:id="@+id/femaleButton"
         android:layout_width="125dp"
         android:layout_height="125dp"
-        android:layout_below="@+id/genderTitle"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="50dp"
         android:background="@drawable/round_button"
         android:padding="10dp"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_female"
-        android:scaleType="fitXY"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/maleButton"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

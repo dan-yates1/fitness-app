@@ -44,4 +44,16 @@ public class Day implements Serializable {
     public int getSets() {
         return mSets;
     }
+
+    public void setExercises(ArrayList<Exercise> exercises) {
+        this.mExercises = exercises;
+    }
+
+    public void setReps(int reps) {
+        this.mReps = reps;
+    }
+
+    public void setSets(int sets) {
+        this.mSets = sets;
+    }
 }
