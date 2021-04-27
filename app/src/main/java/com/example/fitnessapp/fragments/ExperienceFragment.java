@@ -88,11 +88,13 @@ public class ExperienceFragment extends Fragment implements View.OnClickListener
         fAuth = FirebaseAuth.getInstance();
         userId = fAuth.getCurrentUser().getUid();
         DocumentReference docRef = fStore
-                .collection("users").document(userId);
+                .collection("users").document(userId)
+                .collection("workout").document(userId);
+
         // Populate hash map with data
-        Map<String, Object> workoutMap = new HashMap<>();
-        workoutMap.put("workoutJson", workoutToJson(mWorkout));
-        docRef.set(workoutMap).addOnSuccessListener(aVoid -> {
+        //Map<String, Object> workoutMap = new HashMap<>();
+        //workoutMap.put("workoutJson", workoutToJson(mWorkout));
+        docRef.set(mWorkout).addOnSuccessListener(aVoid -> {
             Log.d(TAG, "onSuccess: Workout is created for" + userId);
         });
     }

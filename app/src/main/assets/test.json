@@ -1,0 +1,24 @@
+[
+  {
+    "availability": 5,
+    "equipment": [
+      "Barbell",
+      "Machines",
+      "Barbell"
+    ],
+    "experience": "Intermediate",
+    "gender": "Male",
+    "goal": "Muscle-gain"
+  },
+  {
+    "availability": 5,
+    "equipment": [
+      "Barbell",
+      "Machines",
+      "Barbell"
+    ],
+    "experience": "Intermediate",
+    "gender": "Male",
+    "goal": "Muscle-gain"
+  }
+]

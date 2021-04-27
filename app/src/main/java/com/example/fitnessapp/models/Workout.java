@@ -1,70 +1,62 @@
 package com.example.fitnessapp.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Workout implements Serializable {
-    private String mGender;
-    private ArrayList<String> mEquipment;
-    private int mAvailability;
-    private String mGoal;
-    private String mExperience;
+    private String gender;
+    private ArrayList<String> equipment;
+    private int availability;
+    private String goal;
+    private String experience;
 
     public Workout() {
-        this.mGender = "";
-        this.mEquipment = new ArrayList<>();
-        this.mAvailability = 0;
-        this.mGoal = "";
-        this.mExperience = "";
+        gender = "";
+        equipment = new ArrayList<>();
+        availability = 0;
+        goal = "";
+        experience = "";
     }
 
     public String getGender() {
-        return mGender;
+        return gender;
     }
 
     public void setGender(String gender) {
-        this.mGender = gender;
+        this.gender = gender;
     }
 
     public ArrayList<String> getEquipment() {
-        return mEquipment;
+        return equipment;
     }
 
     public void setEquipment(ArrayList<String> equipment) {
-        this.mEquipment = equipment;
+        this.equipment = equipment;
     }
 
     public int getAvailability() {
-        return mAvailability;
+        return availability;
     }
 
     public void setAvailability(int availability) {
-        this.mAvailability = availability;
+        this.availability = availability;
     }
 
     public String getGoal() {
-        return mGoal;
+        return goal;
     }
 
     public void setGoal(String goal) {
-        this.mGoal = goal;
+        this.goal = goal;
     }
 
     public String getExperience() {
-        return mExperience;
+        return experience;
     }
 
     public void setExperience(String experience) {
-        this.mExperience = experience;
-    }
-
-    public int getRoutine() {
-        int routine = 0;
-        return routine;
-    }
-
-    public Routine generateRoutine() {
-        Routine routine = new Routine("test");
-        return routine;
+        this.experience = experience;
     }
 }

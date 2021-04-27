@@ -19,7 +19,7 @@
         android:id="@+id/genderTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/roboto_bold"
         android:gravity="center_horizontal"
         android:text="HOW MANY DAYS DO YOU\nPLAN TO WORKOUT A WEEK?"
@@ -76,6 +76,7 @@
     <Button
         android:id="@+id/nextButton"
         android:layout_width="250dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="25dp"
         android:fontFamily="@font/roboto_bold"
         android:text="NEXT"
@@ -86,7 +87,6 @@
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_height="wrap_content" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

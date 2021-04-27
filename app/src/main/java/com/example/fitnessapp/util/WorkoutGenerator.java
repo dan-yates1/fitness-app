@@ -10,6 +10,7 @@ import com.example.fitnessapp.models.Workout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Random;
@@ -26,8 +27,7 @@ public class WorkoutGenerator {
     public WorkoutGenerator(Workout workout, int routineId, Context context) {
         mWorkout = workout;
         mRoutineId = routineId;
-        getExerciseList(context);
-        getRepsSets();
+        //getRepsSets();
         getSplit(context);
     }
 
@@ -66,9 +66,9 @@ public class WorkoutGenerator {
         }
     }
 
-    public void getExerciseList(Context context) {
+    public ArrayList<Exercise> getExerciseList(Context context) {
         JsonHandler jsonHandler = new JsonHandler();
-        mExerciseList = jsonHandler.getAllExercises(context);
+        return jsonHandler.getAllExercises(context);
     }
 
     public Routine getSplit(String jsonString) {
@@ -82,7 +82,7 @@ public class WorkoutGenerator {
         JsonHandler jsonHandler = new JsonHandler();
         String ppl = jsonHandler.loadJSONFromAsset("ppl.json", context);
         Routine routine = getSplit(ppl);
-        routine.setDays(populateRoutine(routine));
+        routine.setDays(populateRoutine(routine, context));
         mRoutine = routine;
     }
 
@@ -90,7 +90,7 @@ public class WorkoutGenerator {
         JsonHandler jsonHandler = new JsonHandler();
         String fiveDay = jsonHandler.loadJSONFromAsset("5day.json", context);
         Routine routine = getSplit(fiveDay);
-        routine.setDays(populateRoutine(routine));
+        routine.setDays(populateRoutine(routine ,context));
         mRoutine = routine;
     }
 
@@ -98,23 +98,23 @@ public class WorkoutGenerator {
         JsonHandler jsonHandler = new JsonHandler();
         String upperlower = jsonHandler.loadJSONFromAsset("upperlower.json", context);
         Routine routine = getSplit(upperlower);
-        routine.setDays(populateRoutine(routine));
+        routine.setDays(populateRoutine(routine, context));
         mRoutine = routine;
     }
 
-    public ArrayList<Day> populateRoutine(Routine routine) {
+    public ArrayList<Day> populateRoutine(Routine routine, Context context) {
         Random rand = new Random();
         // Get object of each day
         ArrayList<Day> days = routine.getDays();
         for (int i = 0; i < days.size(); i++) {
             // Set reps and sets for each day
-            days.get(i).setReps(mRequiredReps);
-            days.get(i).setSets(mRequiredSets);
+            days.get(i).setReps(5);
+            days.get(i).setSets(5);
             // Populate each day with exercises
             ArrayList<Exercise> exercises = new ArrayList<>();
             for (int j = 0; j < EXERCISES_PER_WORKOUT; j++) {
                 // Choose random exercise from exercise list
-                exercises.add(mExerciseList.get(rand.nextInt(mExerciseList.size())));
+                exercises.add(getExerciseList(context).get(rand.nextInt(getExerciseList(context).size())));
             }
             days.get(i).setExercises(exercises);
         }
