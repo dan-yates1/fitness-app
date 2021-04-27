@@ -1,114 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".layouts.RegisterActivity"
-    android:background="@color/dark_grey">
+    android:background="@color/dark_grey"
+    tools:context=".layouts.RegisterActivity">
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.05"
+        android:scaleType="center"
+        android:src="@drawable/bg_img" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/roboto_regular"
         android:text="By checking this box I agree that I am over 18 years\nold and have read the terms and conditions."
         android:textColor="@color/white"
-        android:fontFamily="@font/roboto_regular"
-        android:layout_below="@id/passwordEditText"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="25dp"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/bg_img"
-        android:alpha="0.05"
-        android:scaleType="center"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:src="@drawable/ic_fitness_bot"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logoImageView"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="LET US KNOW A BIT ABOUT YOU!"
         android:textColor="@color/white"
-        android:fontFamily="@font/roboto_bold"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
 
     <EditText
         android:id="@+id/nameEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="75dp"
-        android:layout_below="@id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="366dp"
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+        android:alpha="0.75"
         android:background="@drawable/edit_text_bg"
+        android:drawableLeft="@drawable/ic_person"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/roboto_regular"
         android:hint="FULL NAME"
         android:padding="10dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:alpha="0.75"
-        android:drawableLeft="@drawable/ic_person"
-        android:drawablePadding="10dp"/>
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/emailEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <EditText
         android:id="@+id/emailEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_below="@id/nameEditText"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="366dp"
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+        android:alpha="0.75"
         android:background="@drawable/edit_text_bg"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/roboto_regular"
         android:hint="EMAIL"
         android:padding="10dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:alpha="0.75"
-        android:drawableLeft="@drawable/ic_email"
-        android:drawablePadding="10dp"/>
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/passwordEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
 
     <EditText
         android:id="@+id/passwordEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_below="@id/emailEditText"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="366dp"
         android:alpha="0.75"
         android:background="@drawable/edit_text_bg"
         android:drawableLeft="@drawable/ic_password"
@@ -119,21 +105,27 @@
         android:password="true"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/registerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="25dp"
         android:fontFamily="@font/roboto_bold"
         android:text="NEXT"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@color/orange"
-        app:cornerRadius="30dp" />
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
