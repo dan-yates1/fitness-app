@@ -3,8 +3,6 @@ package com.example.fitnessapp.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,67 +10,63 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.models.Day;
-import com.example.fitnessapp.models.Exercise;
 
 import java.util.ArrayList;
 
-public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayViewHolder> {
-    private ArrayList<Exercise> mExerciseList;
-    private Day mDay;
-    private OnItemClickListener mListener;
+public class DayAdapter extends RecyclerView.Adapter<DayAdapter.RoutineViewHolder>{
+    private DayAdapter.OnItemClickListener mListener;
+    private ArrayList<Day> mRoutineList;
 
     public interface OnItemClickListener {
-        void onHelpClick(int position);
+        void onItemClick(int position);
     }
 
     public void setOnItemClickListener(DayAdapter.OnItemClickListener listener) {
         mListener = listener;
     }
 
-    public static class DayViewHolder extends RecyclerView.ViewHolder {
-        private TextView mSetName;
-        private CheckBox mCheckBox;
-        private ImageButton mHelpButton;
+    public static class RoutineViewHolder extends RecyclerView.ViewHolder {
+        private TextView mRoutineName, mNumExercises, mDay;
 
-        public DayViewHolder(@NonNull View itemView, DayAdapter.OnItemClickListener listener) {
+        public RoutineViewHolder(@NonNull View itemView, DayAdapter.OnItemClickListener listener) {
             super(itemView);
-            mSetName = itemView.findViewById(R.id.setName);
-            mCheckBox = itemView.findViewById(R.id.checkBox2);
-            mHelpButton = itemView.findViewById(R.id.helpButton);
+            mRoutineName = itemView.findViewById(R.id.splitName);
+            mNumExercises = itemView.findViewById(R.id.numExercises);
+            mDay = itemView.findViewById(R.id.dayName);
 
-            mHelpButton.setOnClickListener(v -> {
+            itemView.setOnClickListener(v -> {
                 if (listener != null) {
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
-                        listener.onHelpClick(position);
+                        listener.onItemClick(position);
                     }
                 }
             });
         }
     }
 
-    public DayAdapter(ArrayList<Exercise> exerciseList, Day day) {
-        mDay = day;
-        mExerciseList = day.getExercises();
+    public DayAdapter(ArrayList<Day> routineList) {
+        mRoutineList = routineList;
     }
 
     @NonNull
     @Override
-    public DayAdapter.DayViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_set, parent, false);
-        DayAdapter.DayViewHolder evh = new DayAdapter.DayViewHolder(v, mListener);
+    public DayAdapter.RoutineViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_day, parent, false);
+        DayAdapter.RoutineViewHolder evh = new DayAdapter.RoutineViewHolder(v, mListener);
         return evh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DayAdapter.DayViewHolder holder, int position) {
-        Exercise currentItem = mExerciseList.get(position);
-        holder.mSetName.setText(currentItem.getName());
-        holder.mCheckBox.setText(mDay.getSets() + " X " + mDay.getReps());
+    public void onBindViewHolder(@NonNull RoutineViewHolder holder, int position) {
+        Day currentItem = mRoutineList.get(position);
+        holder.mRoutineName.setText(currentItem.getName());
+        holder.mNumExercises.setText(currentItem.getExercises().size() + " Exercises");
+        holder.mDay.setText("DAY " + (position + 1));
     }
 
     @Override
     public int getItemCount() {
-        return mExerciseList.size();
+        return mRoutineList.size();
     }
 }

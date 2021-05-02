@@ -149,4 +149,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@+id/logoImageView"
+        app:layout_constraintEnd_toStartOf="@+id/logoImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/logoImageView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

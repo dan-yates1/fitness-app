@@ -10,18 +10,16 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.fitnessapp.R;
-import com.example.fitnessapp.adapters.DayAdapter;
-import com.example.fitnessapp.adapters.RoutineAdapter;
+import com.example.fitnessapp.adapters.SetAdapter;
 import com.example.fitnessapp.models.Day;
 import com.example.fitnessapp.models.Exercise;
-import com.example.fitnessapp.models.Routine;
 
 import java.util.ArrayList;
 
 public class WorkoutDetailsActivity extends AppCompatActivity {
     private ImageButton mBackButton;
     private RecyclerView mRecyclerView;
-    private DayAdapter mAdapter;
+    private SetAdapter mAdapter;
     private Day mDay;
     private ArrayList<Exercise> mExercises;
     private TextView mWorkoutTitle, mTargetMuscles, mExerciseCounter, mRepsSets;
@@ -40,7 +38,7 @@ public class WorkoutDetailsActivity extends AppCompatActivity {
     private void buildExerciseList() {
         // Get routine object from workout activity
         mExercises = new ArrayList<>();
-        Day day = (Day) getIntent().getSerializableExtra("routine");
+        Day day = (Day) getIntent().getSerializableExtra("day");
         if (day != null) {
             mDay = day;
             mExercises = day.getExercises();
@@ -50,18 +48,13 @@ public class WorkoutDetailsActivity extends AppCompatActivity {
     private void buildRecyclerView () {
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new DayAdapter(mExercises, mDay);
+        mAdapter = new SetAdapter(mExercises, mDay);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.setOnItemClickListener(new DayAdapter.OnItemClickListener() {
-            @Override
-            public void onHelpClick(int position) {
-                startActivity(new Intent(getApplicationContext(),
-                        ExerciseDetailsActivity.class)
-                        .putExtra("exercise", mExercises.get(position)));
-            }
-        });
+        mAdapter.setOnItemClickListener(position -> startActivity(new Intent(getApplicationContext(),
+                ExerciseDetailsActivity.class)
+                .putExtra("exercise", mExercises.get(position))));
     }
 
     private void setUpInterface () {
@@ -75,7 +68,7 @@ public class WorkoutDetailsActivity extends AppCompatActivity {
         mWorkoutTitle.setText(mDay.getName());
         mExerciseCounter.setText(mCompletedExercises + "/" + mDay.getExercises().size());
 
-        ArrayList<String> muscles = getAllMuscles();
+        ArrayList<String> muscles = mDay.getMuscles();
         if (muscles.size() > 0) {
             mTargetMuscles.setText("Target muscles: " + muscles.get(0));
         }

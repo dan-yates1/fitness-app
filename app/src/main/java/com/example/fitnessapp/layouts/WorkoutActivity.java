@@ -1,34 +1,45 @@
 package com.example.fitnessapp.layouts;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ViewGroup;
 
 import com.example.fitnessapp.R;
-import com.example.fitnessapp.adapters.ExerciseAdapter;
-import com.example.fitnessapp.adapters.RoutineAdapter;
+import com.example.fitnessapp.adapters.DayAdapter;
+import com.example.fitnessapp.adapters.FirestoreDayAdapter;
 import com.example.fitnessapp.models.Day;
-import com.example.fitnessapp.models.Exercise;
+import com.example.fitnessapp.models.DaysList;
 import com.example.fitnessapp.models.Routine;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Type;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class WorkoutActivity extends AppCompatActivity {
-    private ArrayList<Day> mRoutineList;
-    BottomNavigationView mBottomNav;
-    private RecyclerView mRecyclerView;
-    private RoutineAdapter mAdapter;
+    private BottomNavigationView mBottomNav;
+    private ArrayList<Day> mDaysList;
+
+    private FirebaseFirestore mDb = FirebaseFirestore.getInstance();
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private String userId = mAuth.getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,20 +47,36 @@ public class WorkoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_workout);
 
         buildNavBar();
-        buildRoutineList();
-        buildRecyclerView();
+        getDaysList(); // Gets days from firestore and builds recycler view
+    }
+
+    private void getDaysList() {
+        CollectionReference routineRef = mDb.collection("users")
+                .document(userId).collection("routine");
+        DocumentReference daysIdRef = routineRef.document(userId);
+        daysIdRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot doc = task.getResult();
+                if (doc.exists()) {
+                    List<Day> days = doc.toObject(DaysList.class).days;
+                    mDaysList = (ArrayList<Day>) days;
+                    buildRecyclerView();
+                }
+            }
+        });
     }
 
     private void buildRecyclerView() {
-        mRecyclerView = findViewById(R.id.recyclerView);
-        mRecyclerView.setHasFixedSize(true);
-        mAdapter = new RoutineAdapter(mRoutineList);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mAdapter);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        DayAdapter adapter = new DayAdapter(mDaysList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
 
-        mAdapter.setOnItemClickListener(position -> startActivity(new Intent(getApplicationContext(),
-                WorkoutDetailsActivity.class)
-                .putExtra("routine", mRoutineList.get(position))));
+        adapter.setOnItemClickListener(position -> {
+            startActivity(new Intent(getApplicationContext(), WorkoutDetailsActivity.class)
+            .putExtra("day", mDaysList.get(position)));
+        });
     }
 
     public void buildNavBar() {
@@ -71,31 +98,5 @@ public class WorkoutActivity extends AppCompatActivity {
             }
             return false;
         });
-    }
-
-    private String loadJSONFromAsset(String fileName) {
-        // Read JSON file into string
-        String json;
-        try {
-            InputStream is = getApplicationContext().getAssets().open(fileName);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, Charset.defaultCharset());
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-
-    private void buildRoutineList() {
-        // Parse list of exercises from JSON file located in assets folder
-        mRoutineList = new ArrayList<>();
-        Gson gson = new Gson();
-        Type exerciseListType = new TypeToken<Routine>(){}.getType();
-        Routine routine = gson.fromJson(loadJSONFromAsset("routines.json"), exerciseListType);
-        mRoutineList = routine.getDays();
     }
 }

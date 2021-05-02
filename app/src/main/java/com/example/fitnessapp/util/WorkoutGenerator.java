@@ -10,7 +10,6 @@ import com.example.fitnessapp.models.Workout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Random;
@@ -27,7 +26,8 @@ public class WorkoutGenerator {
     public WorkoutGenerator(Workout workout, int routineId, Context context) {
         mWorkout = workout;
         mRoutineId = routineId;
-        //getRepsSets();
+        mExerciseList = getExerciseList(context);
+        getRepsSets();
         getSplit(context);
     }
 
@@ -48,20 +48,20 @@ public class WorkoutGenerator {
     public void getRepsSets() {
         switch (mWorkout.getGoal()) {
             case "Weight-loss":
-                mRequiredReps = 12;
+                mRequiredReps = 8;
                 mRequiredSets = 4;
                 break;
             case "Fitness":
-                mRequiredReps = 16;
-                mRequiredSets = 4;
+                mRequiredReps = 20;
+                mRequiredSets = 2;
                 break;
             case "Strength":
                 mRequiredReps = 5;
-                mRequiredSets = 5;
+                mRequiredSets = 3;
                 break;
             case "Muscle-gain":
-                mRequiredReps = 8;
-                mRequiredSets = 6;
+                mRequiredReps = 12;
+                mRequiredSets = 4;
                 break;
         }
     }
@@ -103,25 +103,79 @@ public class WorkoutGenerator {
     }
 
     public ArrayList<Day> populateRoutine(Routine routine, Context context) {
-        Random rand = new Random();
-        // Get object of each day
+        // Loop through each day and assign exercises
         ArrayList<Day> days = routine.getDays();
         for (int i = 0; i < days.size(); i++) {
-            // Set reps and sets for each day
-            days.get(i).setReps(5);
-            days.get(i).setSets(5);
-            // Populate each day with exercises
-            ArrayList<Exercise> exercises = new ArrayList<>();
-            for (int j = 0; j < EXERCISES_PER_WORKOUT; j++) {
-                // Choose random exercise from exercise list
-                exercises.add(getExerciseList(context).get(rand.nextInt(getExerciseList(context).size())));
-            }
-            days.get(i).setExercises(exercises);
+            Day day = getExerciseForDay(days.get(i));
+            day.setSets(mRequiredSets);
+            day.setReps(mRequiredReps);
+            days.set(i, day);
         }
         return days;
     }
 
     public Routine getRoutine() {
         return mRoutine;
+    }
+
+    private boolean isExerciseSuitable(Day day, Exercise exercise) {
+        boolean suitable = false;
+        // Check if exercise matches target muscles
+        ArrayList<String> targetMuscles = day.getMuscles();
+        for (int i = 0; i < targetMuscles.size(); i++) {
+            if (exercise.getAllMuscles().contains(targetMuscles.get(i))) {
+                suitable = true;
+                break;
+            }
+        }
+        return suitable;
+    }
+
+    private boolean doesMatchEquipment(Exercise exercise) {
+        boolean match = false;
+        ArrayList<String> equipmentList = mWorkout.getEquipment();
+        for (int i = 0; i < equipmentList.size(); i++) {
+            if(exercise.getEquipment().contains(equipmentList.get(i))) {
+                match = true;
+            }
+        }
+        return match;
+    }
+
+    private Day getExerciseForDay(Day day) {
+        Day today = day;
+        Random rand = new Random();
+        ArrayList<Exercise> todayExercises = new ArrayList<>();
+        int exerciseCount = 0;
+        while (exerciseCount < EXERCISES_PER_WORKOUT) {
+            int randInt = rand.nextInt(mExerciseList.size());
+            Exercise exercise = mExerciseList.get(randInt);
+            if (isExerciseSuitable(today, exercise) && !todayExercises.contains(exercise) && doesMatchEquipment(exercise)) {
+                todayExercises.add(exercise);
+                exerciseCount++;
+            }
+        }
+        today.setExercises(todayExercises);
+        return today;
+    }
+
+    private ArrayList<Day> getCorrectNumberOfDays(ArrayList<Day> days) {
+        ArrayList<Day> dayList = days;
+        int userAvailability = mWorkout.getAvailability();
+        if (dayList.size() < userAvailability) {
+            int daysExtraRequired = userAvailability - dayList.size();
+            for (int i = 0; i < daysExtraRequired; i++) {
+                // Duplicate days earlier on in the week
+                dayList.add(dayList.get(i));
+            }
+        }
+        if (dayList.size() > userAvailability) {
+            int daysLessRequired = dayList.size() - userAvailability;
+            while (daysLessRequired > 0) {
+                dayList.remove(dayList.size()-1);
+                daysLessRequired--;
+            }
+        }
+        return dayList;
     }
 }

@@ -11,6 +11,10 @@ public class Routine implements Serializable {
     @SerializedName("routine")
     private ArrayList<Day> mDays;
 
+    public Routine() {
+
+    }
+
     public Routine(String routineName) {
         this.mRoutineName = routineName;
         mDays = new ArrayList<Day>();

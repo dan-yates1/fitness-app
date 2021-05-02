@@ -16,7 +16,7 @@
   {
     "name": "Military Press",
     "primary_muscles": ["Shoulders"],
-    "secondary_muscles": ["Abs", "Back"],
+    "secondary_muscles": ["Abs"],
     "equipment": ["Barbell"],
     "description": "The overhead press (abbreviated OHP), also referred to as a shoulder press, military press, or simply the press, is a weight training exercise with many variations. It is typically performed while either standing or sitting sometimes also when squatting, in which a weight is pressed straight upwards from racking position until the arms are locked out overhead, while the legs, lower back and abs maintain balance (Wikipedia)."
   },
