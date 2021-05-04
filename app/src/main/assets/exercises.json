@@ -1,8 +1,8 @@
 [
   {
     "name": "Bench Press",
-    "primary_muscles": ["Chest", "Triceps"],
-    "secondary_muscles": ["Abs"],
+    "primary_muscles": ["Chest"],
+    "secondary_muscles": ["Abs",  "Triceps"],
     "equipment": ["Barbell"],
     "description": "The bench press is an upper-body weight training exercise in which the trainee presses a weight upwards while lying on a weight training bench. The exercise uses the pectoralis major, the anterior deltoids, and the triceps, among other stabilizing muscles (Wikipedia, 2021)."
   },
@@ -66,7 +66,7 @@
     "name": "Triceps Extensions",
     "primary_muscles": ["Triceps"],
     "secondary_muscles": [],
-    "equipment": [],
+    "equipment": ["Machines"],
     "description": "Triceps extensions are one of the most stimulating exercises to the entire triceps muscle group in the upper arm. It works the triceps from the elbow all the way to the latissimus dorsi. Due to its full use of the Triceps muscle group, the lying triceps extensions are used by many as part of their training regimen (Wikipedia, 2021)."
   },
   {
@@ -259,11 +259,11 @@
     "description": "A variation of the bicep curl at which the hands are facing towards each other whilst gripping the dumbbells."
   },
   {
-    "name": "",
-    "primary_muscles": [""],
+    "name": "Close Grip Bench-Press",
+    "primary_muscles": ["Chest", "Triceps"],
     "secondary_muscles": [],
-    "equipment": [],
-    "description": " (Wikipedia, 2021)."
+    "equipment": ["Barbell"],
+    "description": "Lie on the bench with your feet flat on the floor and grip the barbell with your hands around shoulder-width apart. They can be slightly closer than that, but don’t move them too close together or the set-up will become unstable and you’ll risk an injury to your wrists. Brace your core and squeeze your shoulder blades together to stabilise your body. Lower the bar slowly and press up powerfully. Then bring the bar back down towards your sternum. Keep your elbows close to your sides to emphasise your triceps and don’t arch your back."
   },
   {
     "name": "",

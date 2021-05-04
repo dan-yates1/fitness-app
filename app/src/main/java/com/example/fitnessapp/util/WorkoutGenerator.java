@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class WorkoutGenerator {
-    private static final int EXERCISES_PER_WORKOUT = 2;
+    private static final int EXERCISES_PER_WORKOUT = 5;
     private Routine mRoutine;
     private Workout mWorkout;
     private int mRoutineId;
@@ -138,7 +138,7 @@ public class WorkoutGenerator {
         // Check if exercise matches target muscles
         ArrayList<String> targetMuscles = day.getMuscles();
         for (int i = 0; i < targetMuscles.size(); i++) {
-            if (exercise.getAllMuscles().contains(targetMuscles.get(i))) {
+            if (exercise.getPrimaryMuscles().contains(targetMuscles.get(i))) {
                 suitable = true;
                 break;
             }
@@ -149,10 +149,16 @@ public class WorkoutGenerator {
     private boolean doesMatchEquipment(Exercise exercise) {
         boolean match = false;
         ArrayList<String> equipmentList = mWorkout.getEquipment();
-        for (int i = 0; i < equipmentList.size(); i++) {
-            if(exercise.getEquipment().contains(equipmentList.get(i))) {
-                match = true;
+        // Check if exercise requires equipment
+        if(!exercise.getEquipment().isEmpty()) {
+            // Check if users list of equipment is suitable for exercise
+            for (int i = 0; i < equipmentList.size(); i++) {
+                if(exercise.getEquipment().contains(equipmentList.get(i))) {
+                    match = true;
+                }
             }
+        } else {
+            match = true;
         }
         return match;
     }
@@ -162,12 +168,15 @@ public class WorkoutGenerator {
         Random rand = new Random();
         ArrayList<Exercise> todayExercises = new ArrayList<>();
         int exerciseCount = 0;
-        while (exerciseCount < EXERCISES_PER_WORKOUT) {
+        for (int i = 0; i < mExerciseList.size(); i++) {
             int randInt = rand.nextInt(mExerciseList.size());
             Exercise exercise = mExerciseList.get(randInt);
             if (isExerciseSuitable(today, exercise) && !todayExercises.contains(exercise) && doesMatchEquipment(exercise)) {
                 todayExercises.add(exercise);
                 exerciseCount++;
+                if (exerciseCount >= EXERCISES_PER_WORKOUT) {
+                    break;
+                }
             }
         }
         today.setExercises(todayExercises);

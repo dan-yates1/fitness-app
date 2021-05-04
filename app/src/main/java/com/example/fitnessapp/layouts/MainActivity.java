@@ -54,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
                 .withTargetActivity(WorkoutActivity.class)
                 .withSplashTimeOut(3000)
                 .withBackgroundColor(Color.parseColor("#373737"))
+                .withAfterLogoText("Sit tight while we create your workout!")
                 .withLogo(R.drawable.ic_fitness_bot);
+
+        config.getAfterLogoTextView().setTextColor(Color.WHITE);
 
         View easySplashScreen = config.create();
         setContentView(easySplashScreen);
