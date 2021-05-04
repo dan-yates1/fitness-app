@@ -1,0 +1,53 @@
+{
+  "name": "5-Day",
+  "routine": [
+    {
+      "name": "Chest",
+      "muscles": [
+        "Chest"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    },
+    {
+      "name": "Shoulders",
+      "muscles": [
+        "Shoulders"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    },
+    {
+      "name": "Back",
+      "muscles": [
+        "Back"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    },
+    {
+      "name": "Legs",
+      "muscles": [
+        "Quads",
+        "Hamstrings",
+        "Glutes"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    },
+    {
+      "name": "Arms",
+      "muscles": [
+        "Biceps",
+        "Triceps"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    }
+  ]
+}

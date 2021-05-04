@@ -64,17 +64,17 @@
   },
   {
     "name": "Triceps Extensions",
-    "primary_muscles": [],
+    "primary_muscles": ["Triceps"],
     "secondary_muscles": [],
     "equipment": [],
     "description": "Triceps extensions are one of the most stimulating exercises to the entire triceps muscle group in the upper arm. It works the triceps from the elbow all the way to the latissimus dorsi. Due to its full use of the Triceps muscle group, the lying triceps extensions are used by many as part of their training regimen (Wikipedia, 2021)."
   },
   {
-    "name": "",
-    "primary_muscles": [],
-    "secondary_muscles": [],
-    "equipment": [],
-    "description": " (Wikipedia, 2021)."
+    "name": "Chest Fly",
+    "primary_muscles": ["Chest"],
+    "secondary_muscles": ["Shoulders"],
+    "equipment": ["Machines", "Cables"],
+    "description": "The chest fly or pectoral fly (abbreviated to pec fly) primarily works the pectoralis major muscles to move the arms horizontally forward. If medially (internally) rotated, it is assisted in this by the anterior (front) head of the deltoideus in transverse flexion. If laterally (externally) rotated, the contribution of the deltoid is lessened and the pec major is strongly emphasized as the transverse adductor (Wikipedia, 2021)."
   },
   {
     "name": "Lunges",
@@ -103,5 +103,187 @@
     "secondary_muscles": ["Back"],
     "equipment": ["Barbell"],
     "description": "A variation of the deadlift where the grounded-bar start and end positions are modified to make the legs as straight as possible without rounding the back. This exercises aims at targeting the hamstrings instead of the lower back (Wikipedia, 2021)."
+  },
+  {
+    "name": "Push-Down",
+    "primary_muscles": ["Triceps"],
+    "secondary_muscles": [],
+    "equipment": ["Cables"],
+    "description": "A push-down is a strength training exercise used for strengthening the triceps muscles in the back of the arm. The exercise is completed by pushing an object downward against resistance. This exercise is an example of the primary function of the triceps, extension of the elbow joint (Wikipedia, 2021)."
+  },
+  {
+    "name": "Back Extension",
+    "primary_muscles": ["Glutes", "Back"],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": "A hyperextension or back extension is an exercise that works the lower back as well as the mid and upper back, specifically the erector spinae.\n\nIt may be performed on the ground by lying prone with arms overhead and lifting the arms, upper torso, and legs as far as possible, or using a Roman chair to hold the feet down and hips up. Another version is the bird dog exercise, performed lying on the knees, where one arm and the opposite leg are lifted (Wikipedia, 2021)."
+  },
+  {
+    "name": "Upright Row",
+    "primary_muscles": ["Shoulders"],
+    "secondary_muscles": [],
+    "equipment": ["Barbell"],
+    "description": "The upright row is a weight training exercise performed by holding a weight with an overhand grip and lifting it straight up to the collarbone. This is a compound exercise that involves the trapezius, the deltoids and the biceps. The narrower the grip the more the trapezius muscles are exercised, as opposed to the deltoids (Wikipedia, 2021)."
+  },
+  {
+    "name": "Shoulder Shrug",
+    "primary_muscles": ["Shoulders"],
+    "secondary_muscles": [],
+    "equipment": ["Barbell", "Dumbbells"],
+    "description": "The shoulder shrug (usually called simply the shrug) is an exercise in weight training used to develop the upper trapezius muscle (Wikipedia, 2021)."
+  },
+  {
+    "name": "Lateral Deltoid Raises",
+    "primary_muscles": ["Shoulders"],
+    "secondary_muscles": [],
+    "equipment": ["Dumbbells"],
+    "description": "Sit on the glideboard, knees slightly bent and hold the handles down below your buttocks, arms extended and palms facing back.\n\nSlide the glideboard up by pulling the handles forward until your arms are parallel to the floor and allow yourself back down after a short pause.\n\nKeep your arms fully extended throughout (or keep the small bend in your elbows constant) (Total-Gym-Exercises.com, 2021)."
+  },
+  {
+    "name": "Front Deltoid Raises",
+    "primary_muscles": ["Shoulders"],
+    "secondary_muscles": [],
+    "equipment": ["Dumbbells"],
+    "description": "Sit on the glideboard, knees slightly bent and hold the handles down below your buttocks, arms extended and palms facing back.\n\nSlide the glideboard up by pulling the handles forward until your arms are parallel to the floor and allow yourself back down after a short pause.\n\nKeep your arms fully extended throughout (or keep the small bend in your elbows constant) (Total-Gym-Exercises.com, 2021)."
+  },
+  {
+    "name": "T-Bar Row",
+    "primary_muscles": ["Back"],
+    "secondary_muscles": [],
+    "equipment": ["Barbell"],
+    "description": " A variation of the bent-over-row where barbell is pulled up at an angle at which the opposing end is pointing into the ground."
+  },
+  {
+    "name": "Wide Grip Push-Ups",
+    "primary_muscles": ["Chest", "Triceps"],
+    "secondary_muscles": ["Shoulders"],
+    "equipment": [],
+    "description": "Wide push-ups are a simple yet effective way to build your upper-body and core strength. ... By positioning your hands further apart, wide push-ups target your chest and shoulder muscles more than standard push-ups."
+  },
+  {
+    "name": "Lat Pulldown",
+    "primary_muscles": ["Back"],
+    "secondary_muscles": [],
+    "equipment": ["Machines"],
+    "description": "The pull-down exercise is a strength training exercise designed to develop the latissimus dorsi muscle. It performs the functions of downward rotation and depression of the scapulae combined with adduction and extension of the shoulder joint.\n\nThe cable lat pull-down is done where the handle is moved via a cable pulley, as opposed to doing pull-downs on a leverage machine (Wikipedia, 2021)."
+  },
+  {
+    "name": "Pull-Ups",
+    "primary_muscles": ["Back"],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": "A pull-up is an upper-body strength exercise. The pull-up is a closed-chain movement where the body is suspended by the hands and pulls up. As this happens, the elbows flex and the shoulders adduct and extend to bring the elbows to the torso (Wikipedia, 2021)."
+  },
+  {
+    "name": "Farmer’s Walk",
+    "primary_muscles": ["Shoulders", "Back"],
+    "secondary_muscles": [],
+    "equipment": ["Barbell", "Dumbbell"],
+    "description": "All you need to do is stand up straight and start walking with some heavy dumbbells in each hand. It’s that simple! Utilize the farmer’s walk as either a warm-up exercise or as a brutal finisher (M&F Editors, 2021)."
+  },
+  {
+    "name": "Seated Incline Dumbbell Curl",
+    "primary_muscles": ["Biceps"],
+    "secondary_muscles": [],
+    "equipment": ["Dumbbells"],
+    "description": "Staying seated while curling may seem like just a slight adjustment to standing, but you won’t be able to deny how hard your arms are working with this move. Sit on an adjustable bench between 45 and 60 degrees for the ideal effect (M&F Editors, 2021)."
+  },
+  {
+    "name": "Dips",
+    "primary_muscles": ["Triceps"],
+    "secondary_muscles": ["Chest"],
+    "equipment": [],
+    "description": "You don’t need any fancy equipment for dips (even a park bench will do), which makes this an ideal bodyweight workout for triceps. The different variations available can also target your pecs (M&F Editors, 2021)."
+  },
+  {
+    "name": "Diamond Push-Ups",
+    "primary_muscles": ["Triceps"],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": "Shift your focus to your triceps with this variation on a pushup. By keeping your hands closer together, your triceps are under more tension, resulting in a greater workout (M&F Editors, 2021)."
+  },
+  {
+    "name": "Shrugs",
+    "primary_muscles": ["Shoulders"],
+    "secondary_muscles": [],
+    "equipment": ["Barbell"],
+    "description": "There is no shortage of ways to do shrugs. You can utilize the trap bar, stick to dumbbells, hop on a calf machine, or use a designated shrug machine, depending on your gym setup. But no matter which method you choose, the end result is always the same: Big. Honkin’. Traps (M&F Editors, 2021)."
+  },
+  {
+    "name": "Dumbbell Shoulder Press",
+    "primary_muscles": ["Shoulders"],
+    "secondary_muscles": [],
+    "equipment": ["Dumbbells"],
+    "description": "The overhead press is the best way to move large amounts of weight and build some serious shoulder strength. There are also multiple ways to do it, all with their own distinct advantages, including with barbells or dumbbells, standing or seated (M&F Editors, 2021)."
+  },
+  {
+    "name": "Cable Crossover",
+    "primary_muscles": ["Chest"],
+    "secondary_muscles": ["Shoulders"],
+    "equipment": ["Cables"],
+    "description": "The cable crossover is a versatile exercise that’s easy to learn and vital to any chest routine. How high you set the cables is all dependent on what part of the muscle you want to hit (upper or lower). And once you figure out what you’re targeting, you can hop right in and start building your ideal chest (M&F Editors, 2021)."
+  },
+  {
+    "name": "Dumbbell Bench Press",
+    "primary_muscles": ["Chest"],
+    "secondary_muscles": ["Triceps"],
+    "equipment": ["Dumbbells"],
+    "description": "When building that perfect chest, be sure to always incorporate dumbbells into your bench routine. For some, this method will put less strain on the shoulders while isolating more of the chest than the standard barbell bench. And like the traditional barbell version, you can switch up to incline and decline variations to hit different parts of the muscle (M&F Editors, 2021)."
+  },
+  {
+    "name": "Incline Flye",
+    "primary_muscles": ["Chest"],
+    "secondary_muscles": [],
+    "equipment": ["Dumbbells"],
+    "description": "This is a killer way to hit your upper chest. Just set the bench at an incline of no more than 45 degrees, grab some moderately heavy dumbbells, and get lifting.\n\nThere are two big things to remember when doing incline flyes: 1) Make sure the incline angle is correct (if it’s too straight up, you’ll basically be shoulder pressing) and 2) Choose weight that you can hit for 10 to 12 reps. This isn’t about heavy dumbbells, it’s about proper form and range of motion (M&F Editors, 2021)."
+  },
+  {
+    "name": "Bulgarian Split Squat",
+    "primary_muscles": ["Hamstrings", "Glutes"],
+    "secondary_muscles": ["Quads"],
+    "equipment": [],
+    "description": "Bulgarian split squats are tough. You may not be able to pile weight on for them, but once you nail the balancing involved in this exercise, it can be your key to huge legs (M&F Editors, 2021)."
+  },
+  {
+    "name": "Calf Raise",
+    "primary_muscles": ["Quads", "Hamstrings"],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": "Calf raises are a go-to for guys looking to build their legs, and it’s clear why. Whether you do them on a machine, with a barbell, or with just your bodyweight, it’s undeniable that they isolate your calf muscles to get them bigger and stronger (M&F Editors, 2021)."
+  },
+  {
+    "name": "Hammer Curls",
+    "primary_muscles": ["Biceps"],
+    "secondary_muscles": [],
+    "equipment": ["Dumbbells"],
+    "description": "A variation of the bicep curl at which the hands are facing towards each other whilst gripping the dumbbells."
+  },
+  {
+    "name": "",
+    "primary_muscles": [""],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": " (Wikipedia, 2021)."
+  },
+  {
+    "name": "",
+    "primary_muscles": [""],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": " (Wikipedia, 2021)."
+  },
+  {
+    "name": "",
+    "primary_muscles": [""],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": " (Wikipedia, 2021)."
+  },
+  {
+    "name": "",
+    "primary_muscles": [""],
+    "secondary_muscles": [],
+    "equipment": [],
+    "description": " (Wikipedia, 2021)."
   }
 ]

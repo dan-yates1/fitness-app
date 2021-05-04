@@ -7,17 +7,6 @@
     tools:context=".layouts.MainActivity"
     android:background="@color/dark_grey">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
-        android:background="@color/orange"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        app:menu="@menu/nav"/>
-
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"

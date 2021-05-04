@@ -81,9 +81,6 @@ public class ProfileActivity extends AppCompatActivity {
         mBottomNav.setSelectedItemId(R.id.nav_profile);
         mBottomNav.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
-                case R.id.nav_home:
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    break;
                 case R.id.nav_exercises:
                     startActivity(new Intent(getApplicationContext(), ExercisesActivity.class));
                     break;

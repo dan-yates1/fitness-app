@@ -157,9 +157,6 @@ public class ExercisesActivity extends AppCompatActivity implements View.OnClick
         mBottomNav.setSelectedItemId(R.id.nav_exercises);
         mBottomNav.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
-                case R.id.nav_home:
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    break;
                 case R.id.nav_exercises:
                     break;
                 case R.id.nav_profile:

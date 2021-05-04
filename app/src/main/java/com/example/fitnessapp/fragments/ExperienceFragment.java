@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,21 +12,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.fitnessapp.R;
-import com.example.fitnessapp.layouts.DataEntryActivity;
-import com.example.fitnessapp.layouts.ExerciseDetailsActivity;
-import com.example.fitnessapp.layouts.LoadingScreenActivity;
 import com.example.fitnessapp.layouts.MainActivity;
 import com.example.fitnessapp.models.Workout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class ExperienceFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = "TAG";

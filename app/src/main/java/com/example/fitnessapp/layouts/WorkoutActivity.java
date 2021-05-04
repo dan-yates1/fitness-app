@@ -36,6 +36,7 @@ import java.util.Map;
 public class WorkoutActivity extends AppCompatActivity {
     private BottomNavigationView mBottomNav;
     private ArrayList<Day> mDaysList;
+    private RecyclerView mRecyclerView;
 
     private FirebaseFirestore mDb = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -47,6 +48,7 @@ public class WorkoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_workout);
 
         buildNavBar();
+        buildRecyclerView();
         getDaysList(); // Gets days from firestore and builds recycler view
     }
 
@@ -60,23 +62,24 @@ public class WorkoutActivity extends AppCompatActivity {
                 if (doc.exists()) {
                     List<Day> days = doc.toObject(DaysList.class).days;
                     mDaysList = (ArrayList<Day>) days;
-                    buildRecyclerView();
+                    DayAdapter adapter = new DayAdapter(mDaysList);
+                    mRecyclerView.setAdapter(adapter);
+                    adapter.setOnItemClickListener(position -> {
+                        startActivity(new Intent(getApplicationContext(), WorkoutDetailsActivity.class)
+                                .putExtra("day", mDaysList.get(position)));
+                    });
                 }
             }
         });
     }
 
     private void buildRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        DayAdapter adapter = new DayAdapter(mDaysList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-
-        adapter.setOnItemClickListener(position -> {
-            startActivity(new Intent(getApplicationContext(), WorkoutDetailsActivity.class)
-            .putExtra("day", mDaysList.get(position)));
-        });
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView.setHasFixedSize(true);
+        // Create temporary adapter
+        DayAdapter adapter = new DayAdapter(new ArrayList<>());
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(adapter);
     }
 
     public void buildNavBar() {
@@ -84,9 +87,6 @@ public class WorkoutActivity extends AppCompatActivity {
         mBottomNav.setSelectedItemId(R.id.nav_workout);
         mBottomNav.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
-                case R.id.nav_home:
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    break;
                 case R.id.nav_exercises:
                     startActivity(new Intent(getApplicationContext(), ExercisesActivity.class));
                     break;

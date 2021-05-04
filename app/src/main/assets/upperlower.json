@@ -1,0 +1,53 @@
+{
+  "name": "Upper/Lower",
+  "routine": [
+    {
+      "name": "Upper A",
+      "muscles": [
+        "Chest",
+        "Shoulders",
+        "Triceps"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    },
+    {
+      "name": "Lower A",
+      "muscles": [
+        "Back",
+        "Biceps",
+        "Hamstrings",
+        "Quads",
+        "Glutes"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    },
+    {
+      "name": "Upper B",
+      "muscles": [
+        "Chest",
+        "Shoulders",
+        "Triceps"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    },
+    {
+      "name": "Lower B",
+      "muscles": [
+        "Back",
+        "Biceps",
+        "Hamstrings",
+        "Quads",
+        "Glutes"
+      ],
+      "exercises": [],
+      "reps": 0,
+      "sets": 0
+    }
+  ]
+}

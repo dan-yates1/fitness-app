@@ -44,7 +44,7 @@ public class Exercise implements Serializable {
         return mSecondaryMuscles;
     }
 
-    @PropertyName("all")
+    @PropertyName("allMuscles")
     public ArrayList<String> getAllMuscles() {
         // Create new array of all muscles
         ArrayList<String> allMuscles = new ArrayList<>();

@@ -23,10 +23,11 @@ def get_group():
 
     kmeans.fit_predict(new_df[['gender', 'experience', 'goal']])
 
-    #new_df['cluster'] = y
+    new_df['clusters'] = y
 
-    print(new_df.head())
-
+    sns.scatterplot(x="experience", y="goal", hue=new_df['clusters'], data=new_df)
+    plt.title('K-means Clustering with 2 dimensions')
+    plt.show()
 
     #predict = kmeans.predict(user_df)
 

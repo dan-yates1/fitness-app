@@ -12,10 +12,11 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class WorkoutGenerator {
-    private static final int EXERCISES_PER_WORKOUT = 4;
+    private static final int EXERCISES_PER_WORKOUT = 2;
     private Routine mRoutine;
     private Workout mWorkout;
     private int mRoutineId;
@@ -82,7 +83,7 @@ public class WorkoutGenerator {
         JsonHandler jsonHandler = new JsonHandler();
         String ppl = jsonHandler.loadJSONFromAsset("ppl.json", context);
         Routine routine = getSplit(ppl);
-        routine.setDays(populateRoutine(routine, context));
+        routine.setDays(populateRoutine(routine));
         mRoutine = routine;
     }
 
@@ -90,7 +91,7 @@ public class WorkoutGenerator {
         JsonHandler jsonHandler = new JsonHandler();
         String fiveDay = jsonHandler.loadJSONFromAsset("5day.json", context);
         Routine routine = getSplit(fiveDay);
-        routine.setDays(populateRoutine(routine ,context));
+        routine.setDays(populateRoutine(routine));
         mRoutine = routine;
     }
 
@@ -98,13 +99,13 @@ public class WorkoutGenerator {
         JsonHandler jsonHandler = new JsonHandler();
         String upperlower = jsonHandler.loadJSONFromAsset("upperlower.json", context);
         Routine routine = getSplit(upperlower);
-        routine.setDays(populateRoutine(routine, context));
+        routine.setDays(populateRoutine(routine));
         mRoutine = routine;
     }
 
-    public ArrayList<Day> populateRoutine(Routine routine, Context context) {
+    public ArrayList<Day> populateRoutine(Routine routine) {
         // Loop through each day and assign exercises
-        ArrayList<Day> days = routine.getDays();
+        ArrayList<Day> days = routine.getDays();// days.size() == mWorkout.getAvailability()
         for (int i = 0; i < days.size(); i++) {
             Day day = getExerciseForDay(days.get(i));
             day.setSets(mRequiredSets);
@@ -112,6 +113,20 @@ public class WorkoutGenerator {
             days.set(i, day);
         }
         return days;
+    }
+
+    private ArrayList<Day> removeDays(ArrayList<Day> days) {
+        ArrayList<Day> dayList = days;
+        return dayList;
+    }
+
+    private ArrayList<Day> addDays(ArrayList<Day> days) {
+        ArrayList<Day> newDayList = new ArrayList<>();
+        int daysRequired = days.size() - mWorkout.getAvailability();
+        for (int i = 0; i > daysRequired; i++) {
+            newDayList.add(days.get(i));
+        }
+        return newDayList;
     }
 
     public Routine getRoutine() {
@@ -157,25 +172,5 @@ public class WorkoutGenerator {
         }
         today.setExercises(todayExercises);
         return today;
-    }
-
-    private ArrayList<Day> getCorrectNumberOfDays(ArrayList<Day> days) {
-        ArrayList<Day> dayList = days;
-        int userAvailability = mWorkout.getAvailability();
-        if (dayList.size() < userAvailability) {
-            int daysExtraRequired = userAvailability - dayList.size();
-            for (int i = 0; i < daysExtraRequired; i++) {
-                // Duplicate days earlier on in the week
-                dayList.add(dayList.get(i));
-            }
-        }
-        if (dayList.size() > userAvailability) {
-            int daysLessRequired = dayList.size() - userAvailability;
-            while (daysLessRequired > 0) {
-                dayList.remove(dayList.size()-1);
-                daysLessRequired--;
-            }
-        }
-        return dayList;
     }
 }

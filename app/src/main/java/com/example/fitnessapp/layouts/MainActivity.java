@@ -3,8 +3,10 @@ package com.example.fitnessapp.layouts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 import com.chaquo.python.PyObject;
@@ -24,9 +26,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
+import gr.net.maroulis.library.EasySplashScreen;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private BottomNavigationView mBottomNav;
     private Button mButton;
 
     private FirebaseAuth fAuth = FirebaseAuth.getInstance();
@@ -44,32 +47,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setUpInterface();
-        buildNavBar();
+        getRoutine();
+
+        EasySplashScreen config = new EasySplashScreen(MainActivity.this)
+                .withFullScreen()
+                .withTargetActivity(WorkoutActivity.class)
+                .withSplashTimeOut(3000)
+                .withBackgroundColor(Color.parseColor("#373737"))
+                .withLogo(R.drawable.ic_fitness_bot);
+
+        View easySplashScreen = config.create();
+        setContentView(easySplashScreen);
     }
 
     private void setUpInterface() {
         mButton = findViewById(R.id.button);
         mButton.setOnClickListener(v -> {
             getRoutine();
-        });
-    }
-
-    public void buildNavBar() {
-        mBottomNav = findViewById(R.id.bottomNavBar);
-        mBottomNav.setSelectedItemId(R.id.nav_home);
-        mBottomNav.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.nav_exercises:
-                    startActivity(new Intent(getApplicationContext(), ExercisesActivity.class));
-                    break;
-                case R.id.nav_profile:
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                    break;
-                case R.id.nav_workout:
-                    startActivity(new Intent(getApplicationContext(), WorkoutActivity.class));
-                    break;
-            }
-            return false;
         });
     }
 
@@ -80,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 DocumentSnapshot documentSnapshot = task.getResult();
                 Workout workout = documentSnapshot.toObject(Workout.class);
-                int routineId = 0; //getRoutineId(workout);
+                int routineId = 1; //getRoutineId(workout);
                 Routine routine = generateRoutine(workout, routineId);
                 addRoutineToFirestore(routine);
             }
@@ -100,19 +94,6 @@ public class MainActivity extends AppCompatActivity {
         WorkoutGenerator workoutGenerator = new WorkoutGenerator(workout, routineId, getApplicationContext());
         return workoutGenerator.getRoutine();
     }
-
-    private void addRoutineToFirestore1(Routine routine) {
-        ArrayList<Day> days = routine.getDays();
-
-        for (int i = 0; i < days.size(); i++) {
-            docRef = db.collection("users").document(userId)
-                    .collection("routine").document("Day " + (i+1));
-            docRef.set(days.get(i)).addOnSuccessListener(aVoid -> {
-            });
-        }
-        Log.d(TAG, "onSuccess: Routine is created for" + userId);
-    }
-
 
     private void addRoutineToFirestore(Routine routine) {
         docRef = db.collection("users").document(userId)
