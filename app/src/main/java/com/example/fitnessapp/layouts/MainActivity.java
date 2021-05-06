@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 .withTargetActivity(WorkoutActivity.class)
                 .withSplashTimeOut(3000)
                 .withBackgroundColor(Color.parseColor("#373737"))
-                .withAfterLogoText("Sit tight while we create your workout!")
+                .withAfterLogoText("Sit tight while we create your workout.")
                 .withLogo(R.drawable.ic_fitness_bot);
 
         config.getAfterLogoTextView().setTextColor(Color.WHITE);
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 DocumentSnapshot documentSnapshot = task.getResult();
                 Workout workout = documentSnapshot.toObject(Workout.class);
-                int routineId = 1; //getRoutineId(workout);
+                int routineId = getRoutineId(workout);
                 Routine routine = generateRoutine(workout, routineId);
                 addRoutineToFirestore(routine);
             }

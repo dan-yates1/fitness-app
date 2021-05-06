@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.fitnessapp.R;
@@ -25,6 +26,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
     public static final String TAG = "TAG";
     EditText mNameEditText, mEmailEditText, mPasswordEditText;
+    ImageButton mBackButton;
     Button mNextButton;
     CheckBox mCheckBox;
     FirebaseAuth fAuth;
@@ -93,6 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
         mPasswordEditText = findViewById(R.id.passwordEditText);
         mEmailEditText = findViewById(R.id.emailEditText);
         mCheckBox = findViewById(R.id.checkBox);
+        mBackButton = findViewById(R.id.backButton);
 
         mNextButton = findViewById(R.id.registerButton);
         mNextButton.setOnClickListener(v -> {
@@ -101,6 +104,8 @@ public class RegisterActivity extends AppCompatActivity {
                 addUserToFirebase(user);
             }
         });
+
+        mBackButton.setOnClickListener(v -> finish());
     }
 
     private void addUserToFirebase(User user) {

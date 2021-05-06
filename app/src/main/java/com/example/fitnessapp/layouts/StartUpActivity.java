@@ -22,13 +22,13 @@ public class StartUpActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_start_up);
 
         setUpInterface();
-        //autoLoginUser();
+        //logoutUser();
     }
 
-    private void autoLoginUser() {
-        // Check if user is already signed in and take them to main page
+    private void logoutUser() {
+        // If a user is already signed in then sign them out
         if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            fAuth.signOut();
         }
     }
 

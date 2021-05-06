@@ -48,8 +48,12 @@ public class WorkoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_workout);
 
         buildNavBar();
-        buildRecyclerView();
-        getDaysList(); // Gets days from firestore and builds recycler view
+
+        // Check if there is a user signed in
+        if (mAuth.getCurrentUser() != null) {
+            buildRecyclerView();
+            getDaysList(); // Gets days from firestore and builds recycler view
+        }
     }
 
     private void getDaysList() {

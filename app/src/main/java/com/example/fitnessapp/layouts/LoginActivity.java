@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     EditText mEmailEditText, mPasswordEditText;
+    ImageButton mBackButton;
     Button mLoginButton;
     FirebaseAuth fAuth;
 
@@ -54,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setUpInterface() {
+        mBackButton = findViewById(R.id.backButton);
         fAuth = FirebaseAuth.getInstance();
         mEmailEditText = findViewById(R.id.loginEditText);
         mPasswordEditText = findViewById(R.id.passwordEditText);
@@ -63,6 +66,8 @@ public class LoginActivity extends AppCompatActivity {
                 loginUser();
             }
         });
+
+        mBackButton.setOnClickListener(v -> finish());
     }
 
     private void loginUser() {
@@ -71,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(getApplicationContext(), "User logged in successfully!", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), WorkoutActivity.class));
                     } else {
                         Toast.makeText(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }

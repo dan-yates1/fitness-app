@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ public class ProfileActivity extends AppCompatActivity {
     FirebaseFirestore fStore;
     String userId;
     BottomNavigationView mBottomNav;
+    Button mLogoutButton;
 
     private Uri mImageUri;
     private StorageReference mStorageRef;
@@ -41,6 +43,10 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userId = fAuth.getCurrentUser().getUid();
+
         setUpInterface();
         buildNavBar();
         getUserData();
@@ -48,9 +54,6 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     private void getUserData() {
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
-        userId = fAuth.getCurrentUser().getUid();
         // Retrieve user's data from database
         DocumentReference docRef = fStore.collection("users").document(userId);
         docRef.addSnapshotListener(this, (value, error) -> {
@@ -68,12 +71,10 @@ public class ProfileActivity extends AppCompatActivity {
         mEditButton = findViewById(R.id.editButton);
         mProfilePic = findViewById(R.id.profilePic);
 
-        mEditButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                uploadFile();
-            }
-        });
+        mLogoutButton = findViewById(R.id.logoutButton);
+        mLogoutButton.setOnClickListener(v -> signOut());
+
+        mEditButton.setOnClickListener(v -> uploadFile());
     }
 
     public void buildNavBar() {
@@ -107,5 +108,9 @@ public class ProfileActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void signOut() {
+        startActivity(new Intent(getApplicationContext(), StartUpActivity.class));
     }
 }

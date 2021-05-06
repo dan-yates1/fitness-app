@@ -34,13 +34,13 @@ public class WorkoutGenerator {
 
     public void getSplit(Context context) {
         switch (mRoutineId) {
-            case 0:
+            case 2:
                 buildPPL(context);
                 break;
             case 1:
                 build5Day(context);
                 break;
-            case 2:
+            case 0:
                 buildUpperLower(context);
                 break;
         }
@@ -138,7 +138,7 @@ public class WorkoutGenerator {
         // Check if exercise matches target muscles
         ArrayList<String> targetMuscles = day.getMuscles();
         for (int i = 0; i < targetMuscles.size(); i++) {
-            if (exercise.getPrimaryMuscles().contains(targetMuscles.get(i))) {
+            if (exercise.getAllMuscles().contains(targetMuscles.get(i))) {
                 suitable = true;
                 break;
             }
