@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.cluster import KMeans
 from os.path import dirname, join
-import pickle
+
 
 def build_model():
     filename = join(dirname(__file__), "sample_data.csv")
@@ -24,28 +24,18 @@ def build_model():
     # Fit data to model
     kmeans.fit_predict(df)
 
-    # Export model
-    #pickle.dump(kmeans, open("kmeans.pkl", "wb"))
-
     return kmeans
 
 
 def get_group(gender, experience, goal):
     # Get model from last function
     kmeans = build_model()
-    #kmeans = model = pickle.load(open("kmeans.pkl", "rb"))
-
-    # Build DataFrame from user data
-    df = pd.DataFrame([[gender, experience, goal]], columns=['gender', 'experience', 'goal'])
-
-    # Encode input
-    df = encode_data(df)
 
     # Predict cluster of users data
-    group = kmeans.predict(df)
+    predict = kmeans.predict([[1, 2, 3]])
 
     # Get integer out of numpy array before returning
-    return group.item(0)
+    return predict.item(0)
 
 
 def encode_data(df):
